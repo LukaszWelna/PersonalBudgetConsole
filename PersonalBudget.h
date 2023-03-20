@@ -2,10 +2,30 @@
 #define PERSONALBUDGET_H
 
 #include <iostream>
+#include "UserMenager.h"
+#include "MoneyMenager.h"
 
 using namespace std;
 
+class PersonalBudget
+{
+    // ATTRIBUTES
+    UserMenager userMenager;
 
+    // METHODS
+
+public:
+    // USER MENAGEMENT
+    void userSignUp();
+    void userLogin();
+    void changeLoggedUserPassword();
+    void userLogout();
+    bool userLogged();
+    void showUsers();
+
+    // MONEY MENAGEMENT
+    void addIncome();
+};
 
 #endif // PERSONALBUDGET_H
 
