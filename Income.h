@@ -16,6 +16,7 @@ class Income
     float amount;
 
     // METHODS
+public:
     // GETTERS
     int getId();
     int getUserId();
