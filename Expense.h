@@ -15,6 +15,7 @@ class Expense
     float amount;
 
     // METHODS
+public:
     // GETTERS
     int getId();
     int getUserId();

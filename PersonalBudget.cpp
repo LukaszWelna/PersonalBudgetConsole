@@ -36,5 +36,5 @@ void PersonalBudget::changeLoggedUserPassword()
 
 void PersonalBudget::addIncome()
 {
-
+    moneyMenager.addIncome();
 }
