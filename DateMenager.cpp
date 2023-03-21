@@ -1,7 +1,8 @@
 #include "DateMenager.h"
 
-string DateMenager::getCurrentDate()
+int DateMenager::getCurrentDate()
 {
+    string date = "";
     char buffer[11];
     time_t rawtime;
     struct tm *timeinfo;
@@ -10,7 +11,9 @@ string DateMenager::getCurrentDate()
     timeinfo = localtime(&rawtime);
 
     strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
-    return convertCharArrayToString(buffer);
+    date = convertCharArrayToString(buffer);
+
+    return convertDateToInt(date);
 }
 
 string DateMenager::convertCharArrayToString(char array[])
@@ -19,4 +22,10 @@ string DateMenager::convertCharArrayToString(char array[])
         return "";
     else
     return string(array);
+}
+
+int DateMenager::convertDateToInt(string date)
+{
+    date.erase(remove(date.begin(), date.end(), '-'), date.end());
+    return AuxiliaryMethods::convertStringToInt(date);
 }

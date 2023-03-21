@@ -19,7 +19,7 @@ class MoneyMenager
 
     // METHODS
     Income getNewIncomeData();
-    void showMenu();
+    int getDate();
 public:
     void addIncome();
 

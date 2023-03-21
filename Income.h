@@ -8,10 +8,9 @@ using namespace std;
 class Income
 {
     // ATTRIBIUTES
-
     int id;
     int userId;
-    string date;
+    int date;
     string item;
     float amount;
 
@@ -20,14 +19,14 @@ public:
     // GETTERS
     int getId();
     int getUserId();
-    string getDate();
+    int getDate();
     string getItem();
     float getAmount();
 
     // SETTERS
     void setId(int id);
     void setUserId(int userId);
-    void setDate(string date);
+    void setDate(int date);
     void setItem(string item);
     void setAmount(float amount);
 };

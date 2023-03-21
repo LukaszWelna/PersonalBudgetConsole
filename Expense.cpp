@@ -11,7 +11,7 @@ int Expense::getUserId()
     return userId;
 }
 
-string Expense::getDate()
+int Expense::getDate()
 {
     return date;
 }
@@ -37,7 +37,7 @@ void Expense::setUserId(int userId)
     this -> userId = userId;
 }
 
-void Expense::setDate(string date)
+void Expense::setDate(int date)
 {
     this -> date = date;
 }
