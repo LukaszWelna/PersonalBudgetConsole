@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <time.h>
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 
@@ -11,10 +13,11 @@ class DateMenager
 {
     // METHODS
     static string convertCharArrayToString(char array[]);
-    int calculateDaysInMonth();
-    struct tm convertStringToTimeStruct();
+    static int calculateDaysInMonth();
+    static struct tm convertStringToTimeStruct();
+    static int convertDateToInt(string date);
 public:
-    static string getCurrentDate();
+    static int getCurrentDate();
     static bool checkDateFormat();
     static vector <string> calculateLastMonthDates();
     static bool compareDates();

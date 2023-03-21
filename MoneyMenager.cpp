@@ -3,10 +3,38 @@
 void MoneyMenager::addIncome()
 {
     Income income;
+
+    income = getNewIncomeData();
+
+    if (income.date != 0)
+    {
+
+    }
+    {
+        cout << "Adding income failed." << endl;
+    }
+}
+
+Income MoneyMenager::getNewIncomeData()
+{
+    Income income;
+    income.setDate(getDate());
+
+    cout << "Enter source of income: ";
+    income.setItem(AuxiliaryMethods::readLine());
+    cout << "Enter amount of income: ";
+}
+
+int MoneyMenager::getDate()
+{
     char choice;
-    string date;
-    showMenu();
+    int date = 0;
+    system("cls");
+    cout << "1. Current day" << endl;
+    cout << "2. Another day" << endl;
+
     choice = AuxiliaryMethods::readSign();
+
     switch (choice)
     {
     case '1':
@@ -17,17 +45,6 @@ void MoneyMenager::addIncome()
     default:
         cout << "No option in menu." << endl;
     }
-    //income = getNewIncomeData();
-}
 
-Income MoneyMenager::getNewIncomeData()
-{
-
-}
-
-void MoneyMenager::showMenu()
-{
-    system("cls");
-    cout << "1. Current day" << endl;
-    cout << "2. Another day" << endl;
+    return date;
 }
