@@ -25,7 +25,7 @@ class MoneyMenager
 public:
     MoneyMenager(int loggedUserId) : LOGGED_USER_ID(loggedUserId)
     {
-        //incomes = xmlFileWithUserIncomes.loadIncomesFromXmlFile();
+        incomes = xmlFileWithUserIncomes.loadIncomesFromXmlFile(LOGGED_USER_ID);
     }
     void addIncome();
 };

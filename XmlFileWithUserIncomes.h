@@ -12,10 +12,12 @@ using namespace std;
 class XmlFileWithUserIncomes
 {
     // ATTRIBUTES
-
+    int lastIncomeId;
     // METHODS
 public:
-    vector <Income> loadIncomesFromXmlFile();
+    int getLastIncomeId();
+    void setLastIncomeId(int lastIncomeId);
+    vector <Income> loadIncomesFromXmlFile(int loggedUserId);
     void addIncomeToXmlFile(Income income);
 };
 

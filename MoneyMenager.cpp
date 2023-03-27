@@ -31,6 +31,7 @@ Income MoneyMenager::getNewIncomeData()
 
     if (income.getDate())
     {
+        income.setId(xmlFileWithUserIncomes.getLastIncomeId() + 1);
         cout << "Enter source of income: ";
         income.setItem(AuxiliaryMethods::readLine());
         cout << "Enter amount of income: ";
