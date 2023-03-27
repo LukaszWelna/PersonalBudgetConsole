@@ -16,6 +16,7 @@ class AuxiliaryMethods
 public:
     static char readSign();
     static string readLine();
+    static float readNumber();
     static string convertIntToString(int);
     static int convertStringToInt(string);
     static string retrieveIntFromString(string, int);

@@ -11,7 +11,7 @@ class PersonalBudget
 {
     // ATTRIBUTES
     UserMenager userMenager;
-    MoneyMenager moneyMenager;
+    MoneyMenager *moneyMenager;
     // METHODS
 
 public:

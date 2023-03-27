@@ -7,22 +7,27 @@
 #include "Expense.h"
 #include "AuxiliaryMethods.h"
 #include "DateMenager.h"
+#include "XmlFileWithUserIncomes.h"
 
 using namespace std;
 
 class MoneyMenager
 {
     // ATTRIBUTES
-    int loggedUserId;
+    const int LOGGED_USER_ID;
     vector <Income> incomes;
     vector <Expense> expenses;
+    XmlFileWithUserIncomes xmlFileWithUserIncomes;
 
     // METHODS
     Income getNewIncomeData();
     int getDate();
 public:
+    MoneyMenager(int loggedUserId) : LOGGED_USER_ID(loggedUserId)
+    {
+        //incomes = xmlFileWithUserIncomes.loadIncomesFromXmlFile();
+    }
     void addIncome();
-
 };
 
 

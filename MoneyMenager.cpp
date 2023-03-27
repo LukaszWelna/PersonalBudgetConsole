@@ -4,25 +4,42 @@ void MoneyMenager::addIncome()
 {
     Income income;
 
+    system("cls");
+    cout << " >>> ADDING NEW INCOME <<<" << endl << endl;
+
     income = getNewIncomeData();
 
-    if (income.date != 0)
+    if (income.getDate() != 0)
     {
-
+        incomes.push_back(income);
+        xmlFileWithUserIncomes.addIncomeToXmlFile(income);
+        cout << "Income added." << endl;
+        system("pause");
     }
+    else
     {
         cout << "Adding income failed." << endl;
+        system("pause");
     }
 }
 
 Income MoneyMenager::getNewIncomeData()
 {
     Income income;
+    income.setUserId(LOGGED_USER_ID);
     income.setDate(getDate());
 
-    cout << "Enter source of income: ";
-    income.setItem(AuxiliaryMethods::readLine());
-    cout << "Enter amount of income: ";
+    if (income.getDate())
+    {
+        cout << "Enter source of income: ";
+        income.setItem(AuxiliaryMethods::readLine());
+        cout << "Enter amount of income: ";
+        income.setAmount(AuxiliaryMethods::readNumber());
+    }
+    else
+        cout << "Wrong date format." << endl;
+
+    return income;
 }
 
 int MoneyMenager::getDate()
@@ -41,6 +58,7 @@ int MoneyMenager::getDate()
         date = DateMenager::getCurrentDate();
         break;
     case '2':
+        date = DateMenager::getUserDate();
         break;
     default:
         cout << "No option in menu." << endl;

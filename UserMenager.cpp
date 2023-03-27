@@ -10,6 +10,9 @@ void UserMenager::userSignUp()
 {
     User user;
 
+    system("cls");
+    cout << " >>> ADDING NEW USER <<<" << endl << endl;
+
     user = getNewUserData();
 
     if (user.getLogin() != "")
