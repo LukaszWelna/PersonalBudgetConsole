@@ -1,10 +1,21 @@
 #include "XmlFileWithUserIncomes.h"
 
-/*vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile()
+int XmlFileWithUserIncomes::getLastIncomeId()
+{
+    return lastIncomeId;
+}
+
+void XmlFileWithUserIncomes::setLastIncomeId(int lastIncomeId)
+{
+    this -> lastIncomeId = lastIncomeId;
+}
+
+vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
 {
     CMarkup xml;
     Income income;
     vector <Income> incomes;
+    lastIncomeId = 0;
 
     bool loadSuccess = xml.Load("incomes.xml");
 
@@ -21,22 +32,26 @@
             xml.FindElem("UserId");
             income.setUserId(AuxiliaryMethods::convertStringToInt(xml.GetData()));
             xml.FindElem("Date");
-            income.setDate(xml.GetData());
+            income.setDate(AuxiliaryMethods::convertStringToInt(xml.GetData()));
             xml.FindElem("Item");
             income.setItem(xml.GetData());
             xml.FindElem("Amount");
-            income.setSAmount(xml.GetData());
+            income.setAmount(AuxiliaryMethods::convertStringToInt(xml.GetData()));
             xml.OutOfElem();
-            incomes.push_back(income);
+            if (income.getUserId() == loggedUserId)
+                    incomes.push_back(income);
         }
+        lastIncomeId = income.getId();
     }
     else
     {
+        lastIncomeId = 0;
         cout << "Cannot load incomes from database." << endl;
+        system("pause");
     }
     return incomes;
 }
-*/
+
 void XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
 {
     CMarkup xml;
@@ -58,6 +73,7 @@ void XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
     xml.AddElem("Amount", income.getAmount());
 
     xml.Save("incomes.xml");
+    lastIncomeId++;
 }
 
 
