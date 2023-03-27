@@ -9,6 +9,10 @@ void PersonalBudget::userSignUp()
 void PersonalBudget::userLogin()
 {
     userMenager.userLogin();
+    if (userLogged())
+    {
+        moneyMenager = new MoneyMenager(userMenager.getLoggedUserId());
+    }
 }
 
 void PersonalBudget::userLogout()
@@ -36,5 +40,5 @@ void PersonalBudget::changeLoggedUserPassword()
 
 void PersonalBudget::addIncome()
 {
-    moneyMenager.addIncome();
+    moneyMenager -> addIncome();
 }

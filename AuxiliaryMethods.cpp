@@ -27,6 +27,19 @@ string AuxiliaryMethods::readLine()
     return input;
 }
 
+float AuxiliaryMethods::readNumber()
+{
+    float number = 0;
+    while (!(cin >> number))
+    {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "It is not a number. Try again." << endl;
+    }
+
+    return number;
+}
+
 string AuxiliaryMethods::convertIntToString(int number)
 {
     ostringstream ss;
