@@ -47,7 +47,6 @@ vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
     {
         lastIncomeId = 0;
         cout << "Cannot load incomes from database." << endl;
-        system("pause");
     }
     return incomes;
 }
@@ -73,6 +72,7 @@ void XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
     xml.AddElem("Amount", income.getAmount());
 
     xml.Save("incomes.xml");
+
     lastIncomeId++;
 }
 
