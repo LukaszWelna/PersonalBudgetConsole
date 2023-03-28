@@ -88,3 +88,31 @@ int DateMenager::calculateDaysInMonth(int year, int month)
     else
         return daysInMonth[month - 1];
 }
+
+vector <int> DateMenager::getCurrentMonthDates()
+{
+    vector <int> dates;
+    string stringDate = "";
+    int lastDate = 0;
+    char buffer[11];
+    time_t rawtime;
+    struct tm *timeinfo;
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
+    stringDate = convertCharArrayToString(buffer);
+
+    // LAST DAY IN CURRENT MONTH
+    lastDate = convertDateToInt(stringDate);
+
+    // FIRST DAY IN CURRENT MONTH
+    timeinfo -> tm_mday = 1;
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
+    stringDate = convertCharArrayToString(buffer);
+    dates.push_back(convertDateToInt(stringDate));
+    dates.push_back(lastDate);
+
+    return dates;
+}

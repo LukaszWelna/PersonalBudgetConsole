@@ -21,8 +21,9 @@ class DateMenager
 public:
     static int getCurrentDate();
     static int getUserDate();
-    static vector <string> calculateLastMonthDates();
     static bool compareDates();
+    static vector <int> getCurrentMonthDates();
+    static vector <int> calculateLastMonthDates();
 };
 
 #endif // DATEMENAGER_H

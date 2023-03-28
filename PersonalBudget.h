@@ -26,6 +26,7 @@ public:
     // MONEY MENAGEMENT
     void addIncome();
     void addExpense();
+    void showCurrentMonthBalance();
 };
 
 #endif // PERSONALBUDGET_H
