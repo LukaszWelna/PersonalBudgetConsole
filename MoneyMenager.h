@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "Income.h"
 #include "Expense.h"
 #include "AuxiliaryMethods.h"
@@ -25,14 +26,23 @@ class MoneyMenager
     Income getNewIncomeData();
     Expense getNewExpenseData();
     int getDate();
+    void showBalance(vector <int> dates);
+    float showIncomes(vector <int> dates);
+    float showExpenses(vector <int> dates);
+
 public:
     MoneyMenager(int loggedUserId) : LOGGED_USER_ID(loggedUserId)
     {
         incomes = xmlFileWithUserIncomes.loadIncomesFromXmlFile(LOGGED_USER_ID);
         expenses = xmlFileWithUserExpenses.loadExpensesFromXmlFile(LOGGED_USER_ID);
+        sort(incomes.begin(), incomes.end());
+        sort(expenses.begin(), expenses.end());
     }
     void addIncome();
     void addExpense();
+    void showCurrentMonthBalance();
+    void showPreviousMonthBalance();
+    void showCustomMonthBalance();
 };
 
 

@@ -47,3 +47,8 @@ void PersonalBudget::addExpense()
 {
     moneyMenager -> addExpense();
 }
+
+void PersonalBudget::showCurrentMonthBalance()
+{
+    moneyMenager -> showCurrentMonthBalance();
+}

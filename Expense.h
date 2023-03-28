@@ -29,6 +29,11 @@ public:
     void setDate(int date);
     void setItem(string item);
     void setAmount(float amount);
+
+    bool operator < (Expense &expense)
+    {
+        return (this -> date < expense.getDate());
+    }
 };
 
 #endif // EXPENSE_H

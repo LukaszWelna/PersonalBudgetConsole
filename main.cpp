@@ -23,9 +23,9 @@ void showUserMenu()
     cout << " >>> USER MENU <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Add income" << endl;
-    /*cout << "2. Add expense" << endl;
+    cout << "2. Add expense" << endl;
     cout << "3. Current month balance" << endl;
-    cout << "4. Last month balance" << endl;
+    /*cout << "4. Last month balance" << endl;
     cout << "5. Period balance" << endl;
     cout << "---------------------------" << endl;
     */
@@ -80,10 +80,10 @@ int main()
             case '2':
                 personalBudget.addExpense();
                 break;
-            /*case '3':
-                personalBudget.searchByLastname();
+            case '3':
+                personalBudget.showCurrentMonthBalance();
                 break;
-            case '4':
+            /*case '4':
                 personalBudget.showLoggedUserAddresses();
                 break;
             case '5':
