@@ -2,6 +2,7 @@
 #define DATEMENAGER_H
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <time.h>
@@ -19,11 +20,12 @@ class DateMenager
     static int convertDateToInt(string date);
     static bool checkDateFormat(string date);
 public:
+    static string convertIntDateToString(int date);
     static int getCurrentDate();
     static int getUserDate();
     static bool compareDates();
     static vector <int> getCurrentMonthDates();
-    static vector <int> calculateLastMonthDates();
+    static vector <int> getLastMonthDates();
 };
 
 #endif // DATEMENAGER_H

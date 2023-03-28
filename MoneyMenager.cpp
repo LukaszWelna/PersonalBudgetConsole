@@ -118,7 +118,7 @@ void MoneyMenager::showBalance(vector <int> dates)
 
     system("cls");
     cout << "-----------------------------" << endl;
-    cout << ">>> CURRENT MONTH BALANCE <<<" << endl;
+    cout << ">>> MONTH BALANCE <<<" << endl;
     cout << "-----------------------------" << endl;
     sumOfIncomes = showIncomes(dates);
     sumOfExpenses = showExpenses(dates);
@@ -132,6 +132,7 @@ void MoneyMenager::showBalance(vector <int> dates)
 
 float MoneyMenager::showIncomes(vector <int> dates)
 {
+    bool incomesNotShowed = true;
     float sum = 0;
     if (!incomes.empty())
     {
@@ -141,21 +142,24 @@ float MoneyMenager::showIncomes(vector <int> dates)
         {
             if ((incomes[i].getDate() >= dates[0]) && (incomes[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << incomes[i].getDate() << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
+                cout << "Date: " << DateMenager::convertIntDateToString(expenses[i].getDate()) << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
                 sum += incomes[i].getAmount();
+                incomesNotShowed = false;
             }
         }
-        cout << "-----------------------------" << endl;
     }
 
-    else
-        cout << "No incomes in current month" << endl;
+    if(incomesNotShowed)
+        cout << "No incomes to show." << endl;
+
+    cout << "-----------------------------" << endl;
 
     return sum;
 }
 
 float MoneyMenager::showExpenses(vector <int> dates)
 {
+    bool expensesNotShowed = true;
     float sum = 0;
     if (!expenses.empty())
     {
@@ -165,15 +169,17 @@ float MoneyMenager::showExpenses(vector <int> dates)
         {
             if ((expenses[i].getDate() >= dates[0]) && (expenses[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << expenses[i].getDate() << " | Item: " << expenses[i].getItem() << " | Amount: " << expenses[i].getAmount() << endl;
-                sum += expenses[i].getAmount();;
+                cout << "Date: " << DateMenager::convertIntDateToString(expenses[i].getDate()) << " | Item: " << expenses[i].getItem() << " | Amount: " << expenses[i].getAmount() << endl;
+                sum += expenses[i].getAmount();
+                expensesNotShowed = false;
             }
         }
-        cout << "-----------------------------" << endl;
     }
 
-    else
-        cout << "No expenses in current month" << endl;
+    if(expensesNotShowed)
+        cout << "No expenses to show." << endl;
+
+    cout << "-----------------------------" << endl;
 
     return sum;
 }
@@ -182,6 +188,13 @@ void MoneyMenager::showCurrentMonthBalance()
 {
     vector <int> dates;
     dates = DateMenager::getCurrentMonthDates();
+    showBalance(dates);
+}
+
+void MoneyMenager::showPreviousMonthBalance()
+{
+    vector <int> dates;
+    dates = DateMenager::getLastMonthDates();
     showBalance(dates);
 }
 

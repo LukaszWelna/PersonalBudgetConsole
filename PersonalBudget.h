@@ -27,6 +27,7 @@ public:
     void addIncome();
     void addExpense();
     void showCurrentMonthBalance();
+    void showPreviousMonthBalance();
 };
 
 #endif // PERSONALBUDGET_H
