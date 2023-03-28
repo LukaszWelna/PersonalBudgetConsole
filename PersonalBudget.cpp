@@ -42,3 +42,8 @@ void PersonalBudget::addIncome()
 {
     moneyMenager -> addIncome();
 }
+
+void PersonalBudget::addExpense()
+{
+    moneyMenager -> addExpense();
+}

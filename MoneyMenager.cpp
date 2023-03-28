@@ -64,6 +64,48 @@ int MoneyMenager::getDate()
     default:
         cout << "No option in menu." << endl;
     }
-
     return date;
+}
+
+void MoneyMenager::addExpense()
+{
+    Expense expense;
+
+    system("cls");
+    cout << " >>> ADDING NEW EXPENSE <<<" << endl << endl;
+
+    expense = getNewExpenseData();
+
+    if (expense.getDate() != 0)
+    {
+        expenses.push_back(expense);
+        xmlFileWithUserExpenses.addExpenseToXmlFile(expense);
+        cout << "Expense added." << endl;
+        system("pause");
+    }
+    else
+    {
+        cout << "Adding expense failed." << endl;
+        system("pause");
+    }
+}
+
+Expense MoneyMenager::getNewExpenseData()
+{
+    Expense expense;
+    expense.setUserId(LOGGED_USER_ID);
+    expense.setDate(getDate());
+
+    if (expense.getDate())
+    {
+        expense.setId(xmlFileWithUserExpenses.getLastExpenseId() + 1);
+        cout << "Enter source of expense: ";
+        expense.setItem(AuxiliaryMethods::readLine());
+        cout << "Enter amount of expense: ";
+        expense.setAmount(AuxiliaryMethods::readNumber());
+    }
+    else
+        cout << "Wrong date format." << endl;
+
+    return expense;
 }

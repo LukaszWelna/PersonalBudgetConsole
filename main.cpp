@@ -77,10 +77,10 @@ int main()
             case '1':
                 personalBudget.addIncome();
                 break;
-            /*case '2':
-                personalBudget.searchByFirstname();
+            case '2':
+                personalBudget.addExpense();
                 break;
-            case '3':
+            /*case '3':
                 personalBudget.searchByLastname();
                 break;
             case '4':
