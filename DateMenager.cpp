@@ -77,6 +77,16 @@ struct tm DateMenager::convertStringToTimeStruct(string date)
     return timeinfo;
 }
 
+string DateMenager::convertIntDateToString(int date)
+{
+    string stringDate = "";
+    stringDate = AuxiliaryMethods::convertIntToString(date);
+    stringDate.insert(4, "-");
+    stringDate.insert(7, "-");
+
+    return stringDate;
+}
+
 int DateMenager::calculateDaysInMonth(int year, int month)
 {
     int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -113,6 +123,43 @@ vector <int> DateMenager::getCurrentMonthDates()
     stringDate = convertCharArrayToString(buffer);
     dates.push_back(convertDateToInt(stringDate));
     dates.push_back(lastDate);
+
+    return dates;
+}
+
+vector <int> DateMenager::getLastMonthDates()
+{
+    vector <int> dates;
+    string stringDate = "";
+    int maxNumberOfDays = 0;
+    char buffer[11];
+    time_t rawtime;
+    struct tm *timeinfo;
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+
+    if (timeinfo -> tm_mon == 0)
+    {
+        timeinfo -> tm_mon = 11;
+        timeinfo -> tm_year --;
+    }
+    else
+    {
+        timeinfo -> tm_mon--;
+    }
+
+    maxNumberOfDays = calculateDaysInMonth(timeinfo -> tm_year + 1900, timeinfo -> tm_mon + 1);
+
+    timeinfo -> tm_mday = 1;
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
+    stringDate = convertCharArrayToString(buffer);
+    dates.push_back(convertDateToInt(stringDate));
+
+    timeinfo -> tm_mday = maxNumberOfDays;
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
+    stringDate = convertCharArrayToString(buffer);
+    dates.push_back(convertDateToInt(stringDate));
 
     return dates;
 }
