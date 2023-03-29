@@ -11,7 +11,7 @@ void PersonalBudget::userLogin()
     userMenager.userLogin();
     if (userLogged())
     {
-        moneyMenager = new MoneyMenager(userMenager.getLoggedUserId());
+        moneyMenager = new MoneyMenager(userMenager.getLoggedUserId(), FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES);
     }
 }
 
@@ -26,11 +26,6 @@ bool PersonalBudget::userLogged()
         return true;
     else
         return false;
-}
-
-void PersonalBudget::showUsers()
-{
-    userMenager.showUsers();
 }
 
 void PersonalBudget::changeLoggedUserPassword()

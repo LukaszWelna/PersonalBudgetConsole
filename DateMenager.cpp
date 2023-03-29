@@ -92,7 +92,7 @@ int DateMenager::calculateDaysInMonth(int year, int month)
     int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     // CHECKING LEAP YEAR
-    if (month == 2 && ((year%400 == 0) || ((year%100 != 0) && (year % 4 == 0))))
+    if (month == 2 && ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0))))
         return daysInMonth[month - 1] + 1;
 
     else
@@ -168,13 +168,15 @@ vector <int> DateMenager::getCustomDates()
 {
     vector <int> dates;
     string userDate1 = "", userDate2 = "";
-    cout << "Enter first date in format yyyy-mm-dd: ";
+    system("cls");
+    cout << ">>> GETTING USER DATES <<<" << endl << endl;
+    cout << "Enter first (earlier) date in format yyyy-mm-dd: ";
     cin >> userDate1;
 
     if (checkDateFormat(userDate1))
     {
         dates.push_back(convertDateToInt(userDate1));
-        cout << "Enter second date in format yyyy-mm-dd: ";
+        cout << "Enter second (later) date in format yyyy-mm-dd: ";
         cin >> userDate2;
 
         if (checkDateFormat(userDate2))
@@ -185,7 +187,8 @@ vector <int> DateMenager::getCustomDates()
         else
         {
             dates.push_back(0);
-            cout << "Wrong format of date" << endl;
+            cout << endl << "Wrong format of date" << endl;
+            cout << endl;
             system("pause");
         }
     }
@@ -193,7 +196,8 @@ vector <int> DateMenager::getCustomDates()
     {
         dates.push_back(0);
         dates.push_back(0);
-        cout << "Wrong format of date" << endl;
+        cout << endl << "Wrong format of date" << endl;
+        cout << endl;
         system("pause");
 
     }

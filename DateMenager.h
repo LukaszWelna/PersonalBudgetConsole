@@ -13,6 +13,8 @@ using namespace std;
 
 class DateMenager
 {
+    // ATTRIBUTES
+
     // METHODS
     static string convertCharArrayToString(char array[]);
     static int calculateDaysInMonth(int year, int month);

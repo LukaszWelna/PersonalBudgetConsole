@@ -17,7 +17,7 @@ vector <Expense> XmlFileWithUserExpenses::loadExpensesFromXmlFile(int loggedUser
     vector <Expense> expenses;
     lastExpenseId = 0;
 
-    bool loadSuccess = xml.Load("expenses.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (loadSuccess)
     {
@@ -46,15 +46,15 @@ vector <Expense> XmlFileWithUserExpenses::loadExpensesFromXmlFile(int loggedUser
     else
     {
         lastExpenseId = 0;
-        cout << "Cannot load expenses from database." << endl;
     }
+
     return expenses;
 }
 
-void XmlFileWithUserExpenses::addExpenseToXmlFile(Expense expense)
+bool XmlFileWithUserExpenses::addExpenseToXmlFile(Expense expense)
 {
     CMarkup xml;
-    bool loadSuccess = xml.Load("expenses.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (!loadSuccess)
     {
@@ -71,8 +71,12 @@ void XmlFileWithUserExpenses::addExpenseToXmlFile(Expense expense)
     xml.AddElem("Item", expense.getItem());
     xml.AddElem("Amount", expense.getAmount());
 
-    xml.Save("expenses.xml");
+    if (xml.Save(getFileName()))
+    {
+        lastExpenseId++;
+        return true;
+    }
 
-    lastExpenseId++;
+    return false;
 }
 

@@ -6,19 +6,25 @@
 #include "Markup.h"
 #include "Expense.h"
 #include "AuxiliaryMethods.h"
+#include "XmlFile.h"
 
 using namespace std;
 
-class XmlFileWithUserExpenses
+class XmlFileWithUserExpenses : public XmlFile
 {
     // ATTRIBUTES
     int lastExpenseId;
     // METHODS
 public:
+    //CONSTRUCTOR
+    XmlFileWithUserExpenses(string fileNameWithUsers) : XmlFile(fileNameWithUsers)
+    {
+
+    }
     int getLastExpenseId();
     void setLastExpenseId(int lastExpenseId);
     vector <Expense> loadExpensesFromXmlFile(int loggedUserId);
-    void addExpenseToXmlFile(Expense expense);
+    bool addExpenseToXmlFile(Expense expense);
 };
 
 #endif // XMLFILEWITHUSEREXPENSES_H

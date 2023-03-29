@@ -9,7 +9,7 @@ using namespace std;
 void showMainMenu()
 {
     system("cls");
-    cout << "    >>> MAIN MENU <<<" << endl;
+    cout << ">>> MAIN MENU <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Sign up" << endl;
     cout << "2. Login" << endl;
@@ -25,7 +25,7 @@ void showUserMenu()
     cout << "1. Add income" << endl;
     cout << "2. Add expense" << endl;
     cout << "3. Current month balance" << endl;
-    cout << "4. Last month balance" << endl;
+    cout << "4. Previous month balance" << endl;
     cout << "5. Custom balance" << endl;
     cout << "---------------------------" << endl;
     cout << "6. Change password" << endl;
@@ -35,7 +35,7 @@ void showUserMenu()
 
 int main()
 {
-    PersonalBudget personalBudget;
+    PersonalBudget personalBudget("users.xml", "incomes.xml", "expenses.xml");
 
     char choice;
 
@@ -72,7 +72,6 @@ int main()
 
             switch (choice)
             {
-
             case '1':
                 personalBudget.addIncome();
                 break;
@@ -101,7 +100,6 @@ int main()
             }
         }
     }
-
 
     return 0;
 }

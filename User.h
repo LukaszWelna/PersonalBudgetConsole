@@ -29,7 +29,6 @@ public:
     void setPassword(string password);
     void setName(string name);
     void setSurname(string surname);
-
 };
 
 
