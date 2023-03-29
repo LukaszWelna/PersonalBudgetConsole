@@ -36,34 +36,39 @@ User UserMenager::getNewUserData()
 
     user.setId(retrieveNewUserId());
 
+    string line = "";
     cout << "Enter name: ";
-    user.setName(AuxiliaryMethods::readLine());
-    if (user.getName() == "")
+    line = AuxiliaryMethods::readLine();
+    if (line == "")
     {
-        cout << "Name must contain character. Try again." << endl;
+        cout << endl << "Name must contain character. Try again." << endl << endl;
         system("pause");
         return user;
     }
+    user.setName(AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(line));
+
     cout << "Enter surname: ";
-    user.setSurname(AuxiliaryMethods::readLine());
-    if (user.getSurname() == "")
+    line = AuxiliaryMethods::readLine();
+    if (line == "")
     {
-        cout << "Surname must contain character. Try again." << endl;
+        cout << endl << "Surname must contain character. Try again." << endl << endl;
         system("pause");
         return user;
     }
+    user.setSurname(AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(line));
+
     cout << "Enter login: ";
     user.setLogin(AuxiliaryMethods::readLine());
     if (user.getLogin() == "")
     {
-        cout << "Login must contain character. Try again." << endl;
+        cout << endl << "Login must contain character. Try again." << endl << endl;
         system("pause");
         return user;
     }
     if (checkLoginExists(user.getLogin()))
     {
         user.setLogin("");
-        cout << "Login already exists in database. Try again." << endl;
+        cout << endl << "Login already exists in database. Try again." << endl << endl;
         system("pause");
         return user;
     }
@@ -71,7 +76,7 @@ User UserMenager::getNewUserData()
     user.setPassword(AuxiliaryMethods::readLine());
     if (user.getPassword() == "")
     {
-        cout << "Password must contain character. Try again." << endl;
+        cout << endl << "Password must contain character. Try again." << endl << endl;
         system("pause");
         return user;
     }

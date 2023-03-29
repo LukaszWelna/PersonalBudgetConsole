@@ -30,6 +30,7 @@ void MoneyMenager::addIncome()
 
 Income MoneyMenager::getNewIncomeData()
 {
+    string line = "";
     Income income;
     income.setUserId(LOGGED_USER_ID);
     income.setDate(getDate());
@@ -131,7 +132,7 @@ Expense MoneyMenager::getNewExpenseData()
 
 void MoneyMenager::showBalance(vector <int> dates)
 {
-    float sumOfIncomes = 0, sumOfExpenses = 0;
+    int sumOfIncomes = 0, sumOfExpenses = 0;
 
     sumOfIncomes = showIncomes(dates);
     sumOfExpenses = showExpenses(dates);
@@ -144,10 +145,10 @@ void MoneyMenager::showBalance(vector <int> dates)
     system("pause");
 }
 
-float MoneyMenager::showIncomes(vector <int> dates)
+int MoneyMenager::showIncomes(vector <int> dates)
 {
     bool incomesNotShowed = true;
-    float sum = 0;
+    int sum = 0;
     if (!incomes.empty())
     {
         cout << ">>> INCOMES <<<" << endl;
@@ -171,10 +172,10 @@ float MoneyMenager::showIncomes(vector <int> dates)
     return sum;
 }
 
-float MoneyMenager::showExpenses(vector <int> dates)
+int MoneyMenager::showExpenses(vector <int> dates)
 {
     bool expensesNotShowed = true;
-    float sum = 0;
+    int sum = 0;
     if (!expenses.empty())
     {
         cout << ">>> EXPENSES <<<" << endl;
