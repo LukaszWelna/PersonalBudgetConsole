@@ -142,7 +142,7 @@ float MoneyMenager::showIncomes(vector <int> dates)
         {
             if ((incomes[i].getDate() >= dates[0]) && (incomes[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << DateMenager::convertIntDateToString(expenses[i].getDate()) << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
+                cout << "Date: " << DateMenager::convertIntDateToString(incomes[i].getDate()) << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
                 sum += incomes[i].getAmount();
                 incomesNotShowed = false;
             }
@@ -196,6 +196,14 @@ void MoneyMenager::showPreviousMonthBalance()
     vector <int> dates;
     dates = DateMenager::getLastMonthDates();
     showBalance(dates);
+}
+
+void MoneyMenager::showCustomBalance()
+{
+    vector <int> dates;
+    dates = DateMenager::getCustomDates();
+    if (!((dates[0] == 0) || (dates[1] == 0)))
+        showBalance(dates);
 }
 
 
