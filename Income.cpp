@@ -21,7 +21,7 @@ string Income::getItem()
     return item;
 }
 
-float Income::getAmount()
+int Income::getAmount()
 {
     return amount;
 }
@@ -47,7 +47,7 @@ void Income::setItem(string item)
     this -> item = item;
 }
 
-void Income::setAmount(float amount)
+void Income::setAmount(int amount)
 {
     this -> amount = amount;
 }

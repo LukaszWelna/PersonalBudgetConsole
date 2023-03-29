@@ -21,7 +21,7 @@ string Expense::getItem()
     return item;
 }
 
-float Expense::getAmount()
+int Expense::getAmount()
 {
     return amount;
 }
@@ -47,7 +47,7 @@ void Expense::setItem(string item)
     this -> item = item;
 }
 
-void Expense::setAmount(float amount)
+void Expense::setAmount(int amount)
 {
     this -> amount = amount;
 }
