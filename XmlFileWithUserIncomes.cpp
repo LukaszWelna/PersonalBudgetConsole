@@ -17,7 +17,7 @@ vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
     vector <Income> incomes;
     lastIncomeId = 0;
 
-    bool loadSuccess = xml.Load("incomes.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (loadSuccess)
     {
@@ -46,15 +46,14 @@ vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
     else
     {
         lastIncomeId = 0;
-        cout << "Cannot load incomes from database." << endl;
     }
     return incomes;
 }
 
-void XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
+bool XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
 {
     CMarkup xml;
-    bool loadSuccess = xml.Load("incomes.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (!loadSuccess)
     {
@@ -71,9 +70,13 @@ void XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
     xml.AddElem("Item", income.getItem());
     xml.AddElem("Amount", income.getAmount());
 
-    xml.Save("incomes.xml");
+    if(xml.Save(getFileName()))
+    {
+        lastIncomeId++;
+        return true;
+    }
 
-    lastIncomeId++;
+    return false;
 }
 
 

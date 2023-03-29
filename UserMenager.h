@@ -14,7 +14,7 @@ class UserMenager
     // ATTRIBUTES
     int idLoggedUser;
     vector <User> users;
-    XmlFileWIthUsers xmlFileWithUsers;
+    XmlFileWithUsers xmlFileWithUsers;
 
     // METHODS
     User getNewUserData();
@@ -22,7 +22,7 @@ class UserMenager
     bool checkLoginExists(string login);
 public:
     //CONSTRUCTOR
-    UserMenager()
+    UserMenager(string fileNameWithUsers) : xmlFileWithUsers(fileNameWithUsers)
     {
         idLoggedUser = 0;
         users = xmlFileWithUsers.loadUsersFromXmlFile();

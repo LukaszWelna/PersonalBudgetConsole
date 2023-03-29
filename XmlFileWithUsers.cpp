@@ -1,12 +1,12 @@
 #include "XmlFileWithUsers.h"
 
-vector <User> XmlFileWIthUsers::loadUsersFromXmlFile()
+vector <User> XmlFileWithUsers::loadUsersFromXmlFile()
 {
     CMarkup xml;
     User user;
     vector <User> users;
 
-    bool loadSuccess = xml.Load("users.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (loadSuccess)
     {
@@ -30,17 +30,14 @@ vector <User> XmlFileWIthUsers::loadUsersFromXmlFile()
             users.push_back(user);
         }
     }
-    else
-    {
-        cout << "Cannot load users from database." << endl;
-    }
+
     return users;
 }
 
-void XmlFileWIthUsers::addUserToXmlFile(User user)
+bool XmlFileWithUsers::addUserToXmlFile(User user)
 {
     CMarkup xml;
-    bool loadSuccess = xml.Load("users.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (!loadSuccess)
     {
@@ -57,13 +54,16 @@ void XmlFileWIthUsers::addUserToXmlFile(User user)
     xml.AddElem("Name", user.getName());
     xml.AddElem("Surname", user.getSurname());
 
-    xml.Save("users.xml");
+    if(xml.Save(getFileName()))
+        return true;
+
+    return false;
 }
 
-bool XmlFileWIthUsers::changeLoggedUserPassword(int loggedUserId, string newPassword)
+bool XmlFileWithUsers::changeLoggedUserPassword(int loggedUserId, string newPassword)
 {
     CMarkup xml;
-    bool loadSuccess = xml.Load("users.xml");
+    bool loadSuccess = xml.Load(getFileName());
 
     if (loadSuccess)
     {
@@ -76,7 +76,7 @@ bool XmlFileWIthUsers::changeLoggedUserPassword(int loggedUserId, string newPass
         xml.IntoElem();
         xml.FindElem("Password");
         xml.SetData(newPassword);
-        xml.Save("users.xml");
+        xml.Save(getFileName());
         return true;
     }
         return false;

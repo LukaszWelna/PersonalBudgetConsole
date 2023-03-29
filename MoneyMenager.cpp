@@ -11,17 +11,21 @@ void MoneyMenager::addIncome()
 
     if (income.getDate() != 0)
     {
-        incomes.push_back(income);
-        xmlFileWithUserIncomes.addIncomeToXmlFile(income);
-        cout << "Income added." << endl;
-        sort(incomes.begin(), incomes.end());
-        system("pause");
+        if (xmlFileWithUserIncomes.addIncomeToXmlFile(income))
+        {
+            incomes.push_back(income);
+            cout << endl << "Income added." << endl;
+            sort(incomes.begin(), incomes.end());
+        }
+        else
+            cout << endl << "Adding income failed." << endl;
+
     }
     else
-    {
-        cout << "Adding income failed." << endl;
-        system("pause");
-    }
+        cout << endl << "Adding income failed." << endl;
+
+    cout << endl;
+    system("pause");
 }
 
 Income MoneyMenager::getNewIncomeData()
@@ -32,6 +36,9 @@ Income MoneyMenager::getNewIncomeData()
 
     if (income.getDate())
     {
+        system("cls");
+        cout << ">>> ADDING NEW INCOME <<<" << endl << endl;
+
         income.setId(xmlFileWithUserIncomes.getLastIncomeId() + 1);
         cout << "Enter source of income: ";
         income.setItem(AuxiliaryMethods::readLine());
@@ -39,7 +46,7 @@ Income MoneyMenager::getNewIncomeData()
         income.setAmount(AuxiliaryMethods::readNumber());
     }
     else
-        cout << "Wrong date format." << endl;
+        cout << endl << "Wrong date format." << endl;
 
     return income;
 }
@@ -48,7 +55,7 @@ int MoneyMenager::getDate()
 {
     char choice;
     int date = 0;
-    system("cls");
+
     cout << "1. Current day" << endl;
     cout << "2. Another day" << endl;
 
@@ -60,9 +67,12 @@ int MoneyMenager::getDate()
         date = DateMenager::getCurrentDate();
         break;
     case '2':
+        system("cls");
+        cout << ">>> GETTING USER DATE <<<" << endl << endl;
         date = DateMenager::getUserDate();
         break;
     default:
+        system("cls");
         cout << "No option in menu." << endl;
     }
     return date;
@@ -73,23 +83,27 @@ void MoneyMenager::addExpense()
     Expense expense;
 
     system("cls");
-    cout << " >>> ADDING NEW EXPENSE <<<" << endl << endl;
+    cout << ">>> ADDING NEW EXPENSE <<<" << endl << endl;
 
     expense = getNewExpenseData();
 
     if (expense.getDate() != 0)
     {
-        expenses.push_back(expense);
-        xmlFileWithUserExpenses.addExpenseToXmlFile(expense);
-        cout << "Expense added." << endl;
-        sort(expenses.begin(), expenses.end());
-        system("pause");
+        if (xmlFileWithUserExpenses.addExpenseToXmlFile(expense))
+        {
+            expenses.push_back(expense);
+            cout << endl << "Expense added." << endl;
+            sort(expenses.begin(), expenses.end());
+        }
+        else
+            cout << endl << "Adding expense failed." << endl;
+
     }
     else
-    {
-        cout << "Adding expense failed." << endl;
-        system("pause");
-    }
+        cout << endl << "Adding expense failed." << endl;
+
+    cout << endl;
+    system("pause");
 }
 
 Expense MoneyMenager::getNewExpenseData()
@@ -100,6 +114,9 @@ Expense MoneyMenager::getNewExpenseData()
 
     if (expense.getDate())
     {
+        system("cls");
+        cout << " >>> ADDING NEW EXPENSE <<<" << endl << endl;
+
         expense.setId(xmlFileWithUserExpenses.getLastExpenseId() + 1);
         cout << "Enter source of expense: ";
         expense.setItem(AuxiliaryMethods::readLine());
@@ -107,7 +124,7 @@ Expense MoneyMenager::getNewExpenseData()
         expense.setAmount(AuxiliaryMethods::readNumber());
     }
     else
-        cout << "Wrong date format." << endl;
+        cout << endl << "Wrong date format." << endl;
 
     return expense;
 }
@@ -116,10 +133,6 @@ void MoneyMenager::showBalance(vector <int> dates)
 {
     float sumOfIncomes = 0, sumOfExpenses = 0;
 
-    system("cls");
-    cout << "-----------------------------" << endl;
-    cout << ">>> MONTH BALANCE <<<" << endl;
-    cout << "-----------------------------" << endl;
     sumOfIncomes = showIncomes(dates);
     sumOfExpenses = showExpenses(dates);
     cout << "SUM OF INCOMES: " << sumOfIncomes << endl;
@@ -127,6 +140,7 @@ void MoneyMenager::showBalance(vector <int> dates)
     cout << "SUM OF EXPENSES: " << sumOfExpenses << endl;
     cout << "-----------------------------" << endl;
     cout << "FINANCIAL BALANCE: " << sumOfIncomes - sumOfExpenses << endl;
+    cout << endl;
     system("pause");
 }
 
@@ -176,7 +190,7 @@ float MoneyMenager::showExpenses(vector <int> dates)
         }
     }
 
-    if(expensesNotShowed)
+    if (expensesNotShowed)
         cout << "No expenses to show." << endl;
 
     cout << "-----------------------------" << endl;
@@ -188,6 +202,10 @@ void MoneyMenager::showCurrentMonthBalance()
 {
     vector <int> dates;
     dates = DateMenager::getCurrentMonthDates();
+    system("cls");
+    cout << "-----------------------------" << endl;
+    cout << ">>> CURRENT MONTH BALANCE <<<" << endl;
+    cout << "-----------------------------" << endl;
     showBalance(dates);
 }
 
@@ -195,6 +213,10 @@ void MoneyMenager::showPreviousMonthBalance()
 {
     vector <int> dates;
     dates = DateMenager::getLastMonthDates();
+    system("cls");
+    cout << "-----------------------------" << endl;
+    cout << ">>> PREVIOUS MONTH BALANCE <<<" << endl;
+    cout << "-----------------------------" << endl;
     showBalance(dates);
 }
 
@@ -202,8 +224,14 @@ void MoneyMenager::showCustomBalance()
 {
     vector <int> dates;
     dates = DateMenager::getCustomDates();
-    if (!((dates[0] == 0) || (dates[1] == 0)))
+    if (!((dates[0] == 0) || (dates[1] == 0)) && dates[0] <= dates[1])
+    {
+        system("cls");
+        cout << "-----------------------------" << endl;
+        cout << ">>> CUSTOM MONTH BALANCE <<<" << endl;
+        cout << "-----------------------------" << endl;
         showBalance(dates);
+    }
 }
 
 

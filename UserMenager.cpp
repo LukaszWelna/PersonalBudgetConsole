@@ -15,12 +15,17 @@ void UserMenager::userSignUp()
 
     user = getNewUserData();
 
-    if (user.getLogin() != "")
+    if ((user.getLogin() != "") && (user.getName() != "") && (user.getSurname() != "") && (user.getPassword() != ""))
     {
-        users.push_back(user);
-        xmlFileWithUsers.addUserToXmlFile(user);
+        if (xmlFileWithUsers.addUserToXmlFile(user))
+        {
+            users.push_back(user);
+            cout << endl << "Account created successfully" << endl ;
+        }
+        else
+            cout << endl << "Creating account failed." << endl;
 
-        cout << endl << "Account created successfully" << endl << endl;
+        cout << endl;
         system("pause");
     }
 }
@@ -33,13 +38,25 @@ User UserMenager::getNewUserData()
 
     cout << "Enter name: ";
     user.setName(AuxiliaryMethods::readLine());
+    if (user.getName() == "")
+    {
+        cout << "Name must contain character. Try again." << endl;
+        system("pause");
+        return user;
+    }
     cout << "Enter surname: ";
     user.setSurname(AuxiliaryMethods::readLine());
+    if (user.getSurname() == "")
+    {
+        cout << "Surname must contain character. Try again." << endl;
+        system("pause");
+        return user;
+    }
     cout << "Enter login: ";
     user.setLogin(AuxiliaryMethods::readLine());
     if (user.getLogin() == "")
     {
-        cout << "Login must contains character or number. Try again." << endl;
+        cout << "Login must contain character. Try again." << endl;
         system("pause");
         return user;
     }
@@ -52,6 +69,12 @@ User UserMenager::getNewUserData()
     }
     cout << "Enter password: ";
     user.setPassword(AuxiliaryMethods::readLine());
+    if (user.getPassword() == "")
+    {
+        cout << "Password must contain character. Try again." << endl;
+        system("pause");
+        return user;
+    }
 
     return user;
 }
@@ -65,19 +88,6 @@ int UserMenager::retrieveNewUserId()
     else
     {
         return users.back().getId() + 1;
-    }
-}
-
-void UserMenager::showUsers()
-{
-    for (int i = 0; i < (int) users.size(); i++)
-    {
-        cout << "User: " << i << endl;
-        cout << "Id: " << users[i].getId() << endl;
-        cout << "Login: " << users[i].getLogin() << endl;
-        cout << "Password: " << users[i].getPassword() << endl;
-        cout << "Name: " << users[i].getName() << endl;
-        cout << "Surname: " << users[i].getSurname() << endl;
     }
 }
 
@@ -98,7 +108,9 @@ void UserMenager::userLogin()
     User user;
     string login = "", password = "";
 
-    cout << endl << "Enter login: ";
+    system("cls");
+    cout << " >>> USER LOGIN <<<" << endl << endl;
+    cout << "Enter login: ";
     login = AuxiliaryMethods::readLine();
 
     vector <User>::iterator it = users.begin();
@@ -135,12 +147,18 @@ void UserMenager::userLogin()
 void UserMenager::userLogout()
 {
     idLoggedUser = 0;
-    cout << "User logout successfull" << endl;
+    system("cls");
+    cout << " >>> USER LOGOUT <<<" << endl << endl;
+    cout << "User logout successful" << endl;
+    cout << endl;
+    system("pause");
 }
 
 void UserMenager::changeLoggedUserPassword()
 {
     string newPassword = "";
+    system("cls");
+    cout << " >>> CHANGING USER PASSWORD <<<" << endl << endl;
     cout << "Enter new password: ";
     newPassword = AuxiliaryMethods::readLine();
     vector <User>::iterator it = users.begin();
@@ -149,17 +167,17 @@ void UserMenager::changeLoggedUserPassword()
     {
         if (it -> getId() == idLoggedUser)
         {
-            break;
+            if (xmlFileWithUsers.changeLoggedUserPassword(idLoggedUser, newPassword))
+            {
+                it -> setPassword(newPassword);
+                cout << endl << "Password changed." << endl;
+                cout << endl;
+                system("pause");
+            }
+            else
+            {
+                cout << endl << "Cannot open the database. Changing password failed." << endl;
+            }
         }
-    }
-    if (xmlFileWithUsers.changeLoggedUserPassword(idLoggedUser, newPassword))
-    {
-        it -> setPassword(newPassword);
-        cout << "Password changed." << endl << endl;
-        system("pause");
-    }
-    else
-    {
-        cout << "Cannot open the database. Changing password failed." << endl;
     }
 }
