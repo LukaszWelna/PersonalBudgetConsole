@@ -26,6 +26,7 @@ public:
     static bool compareDates();
     static vector <int> getCurrentMonthDates();
     static vector <int> getLastMonthDates();
+    static vector <int> getCustomDates();
 };
 
 #endif // DATEMENAGER_H

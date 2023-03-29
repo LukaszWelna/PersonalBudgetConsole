@@ -163,3 +163,39 @@ vector <int> DateMenager::getLastMonthDates()
 
     return dates;
 }
+
+vector <int> DateMenager::getCustomDates()
+{
+    vector <int> dates;
+    string userDate1 = "", userDate2 = "";
+    cout << "Enter first date in format yyyy-mm-dd: ";
+    cin >> userDate1;
+
+    if (checkDateFormat(userDate1))
+    {
+        dates.push_back(convertDateToInt(userDate1));
+        cout << "Enter second date in format yyyy-mm-dd: ";
+        cin >> userDate2;
+
+        if (checkDateFormat(userDate2))
+        {
+            dates.push_back(convertDateToInt(userDate2));
+        }
+
+        else
+        {
+            dates.push_back(0);
+            cout << "Wrong format of date" << endl;
+            system("pause");
+        }
+    }
+    else
+    {
+        dates.push_back(0);
+        dates.push_back(0);
+        cout << "Wrong format of date" << endl;
+        system("pause");
+
+    }
+    return dates;
+}

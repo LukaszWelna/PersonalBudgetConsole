@@ -26,11 +26,10 @@ void showUserMenu()
     cout << "2. Add expense" << endl;
     cout << "3. Current month balance" << endl;
     cout << "4. Last month balance" << endl;
-    /*cout << "5. Period balance" << endl;
+    cout << "5. Custom balance" << endl;
     cout << "---------------------------" << endl;
-    */
-    cout << "7. Change password" << endl;
-    cout << "8. Logout" << endl;
+    cout << "6. Change password" << endl;
+    cout << "7. Logout" << endl;
     cout << "---------------------------" << endl;
 }
 
@@ -86,17 +85,13 @@ int main()
             case '4':
                 personalBudget.showPreviousMonthBalance();
                 break;
-            /*case '5':
-                personalBudget.deleteAddressee();
+            case '5':
+                personalBudget.showCustomBalance();
                 break;
             case '6':
-                personalBudget.editAddressee();
-                break;
-                */
-            case '7':
                 personalBudget.changeLoggedUserPassword();
                 break;
-            case '8':
+            case '7':
                 personalBudget.userLogout();
                 break;
             default:

@@ -57,4 +57,8 @@ void PersonalBudget::showPreviousMonthBalance()
 {
     moneyMenager -> showPreviousMonthBalance();
 }
+void PersonalBudget::showCustomBalance()
+{
+    moneyMenager -> showCustomBalance();
+}
 
