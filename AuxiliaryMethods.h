@@ -5,6 +5,8 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <cmath>
+#include <stdexcept>
 
 using namespace std;
 
@@ -17,10 +19,12 @@ public:
     static char readSign();
     static string readLine();
     static float readNumber();
-    static string convertIntToString(int);
-    static int convertStringToInt(string);
-    static string retrieveIntFromString(string, int);
-    static string changeFirstLetterToUpperAndOtherToLower(string);
+    static string convertIntToString(int number);
+    static string convertDoubleToString(double number);
+    static int convertStringToInt(string stringNumber);
+    static string retrieveIntFromString(string text, int startPosition);
+    static string changeFirstLetterToUpperAndOtherToLower(string text);
+    static double convertStringToDouble(string stringNumber);
 };
 
 #endif // AUXILIARYMETHODS_H

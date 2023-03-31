@@ -36,7 +36,7 @@ vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
             xml.FindElem("Item");
             income.setItem(xml.GetData());
             xml.FindElem("Amount");
-            income.setAmount(AuxiliaryMethods::convertStringToInt(xml.GetData()));
+            income.setAmount(AuxiliaryMethods::convertStringToDouble(xml.GetData()));
             xml.OutOfElem();
             if (income.getUserId() == loggedUserId)
                     incomes.push_back(income);
@@ -68,7 +68,7 @@ bool XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
     xml.AddElem("UserId", income.getUserId());
     xml.AddElem("Date", income.getDate());
     xml.AddElem("Item", income.getItem());
-    xml.AddElem("Amount", income.getAmount());
+    xml.AddElem("Amount", AuxiliaryMethods::convertDoubleToString(income.getAmount()));
 
     if(xml.Save(getFileName()))
     {

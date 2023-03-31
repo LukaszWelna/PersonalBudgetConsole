@@ -36,7 +36,7 @@ vector <Expense> XmlFileWithUserExpenses::loadExpensesFromXmlFile(int loggedUser
             xml.FindElem("Item");
             expense.setItem(xml.GetData());
             xml.FindElem("Amount");
-            expense.setAmount(AuxiliaryMethods::convertStringToInt(xml.GetData()));
+            expense.setAmount(AuxiliaryMethods::convertStringToDouble(xml.GetData()));
             xml.OutOfElem();
             if (expense.getUserId() == loggedUserId)
                     expenses.push_back(expense);
@@ -69,7 +69,7 @@ bool XmlFileWithUserExpenses::addExpenseToXmlFile(Expense expense)
     xml.AddElem("UserId", expense.getUserId());
     xml.AddElem("Date", expense.getDate());
     xml.AddElem("Item", expense.getItem());
-    xml.AddElem("Amount", expense.getAmount());
+    xml.AddElem("Amount", AuxiliaryMethods::convertDoubleToString(expense.getAmount()));
 
     if (xml.Save(getFileName()))
     {
