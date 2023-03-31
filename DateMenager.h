@@ -21,6 +21,7 @@ class DateMenager
     static struct tm convertStringToTimeStruct(string date);
     static int convertDateToInt(string date);
     static bool checkDateFormat(string date);
+    static struct tm * getCurrentDateStruct();
 public:
     static string convertIntDateToString(int date);
     static int getCurrentDate();
