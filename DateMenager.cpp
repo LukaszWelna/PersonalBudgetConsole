@@ -1,14 +1,22 @@
 #include "DateMenager.h"
 
-int DateMenager::getCurrentDate()
+struct tm * DateMenager::getCurrentDateStruct()
 {
-    string date = "";
-    char buffer[11];
     time_t rawtime;
     struct tm *timeinfo;
 
     time(&rawtime);
     timeinfo = localtime(&rawtime);
+    return timeinfo;
+};
+
+int DateMenager::getCurrentDate()
+{
+    string date = "";
+    char buffer[11];
+    struct tm *timeinfo;
+
+    timeinfo = getCurrentDateStruct();
 
     strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
     date = convertCharArrayToString(buffer);
@@ -47,10 +55,13 @@ bool DateMenager::checkDateFormat(string date)
     regex pattern("\\d{4}[-]\\d{2}[-]\\d{2}");
     if (regex_match(date, pattern))
     {
+        int currentDate = getCurrentDate();
+        int userDate = convertDateToInt(date);
         int maxNumberOfDays = 0;
         struct tm userDateStruct = convertStringToTimeStruct(date);
         maxNumberOfDays = calculateDaysInMonth(userDateStruct.tm_year + 1900, userDateStruct.tm_mon + 1);
-        if ((userDateStruct.tm_mon >= 0) && (userDateStruct.tm_mon < 12) && (userDateStruct.tm_mday > 0) && (userDateStruct.tm_mday <= maxNumberOfDays))
+        if ((userDateStruct.tm_mon >= 0) && (userDateStruct.tm_mon < 12) && (userDateStruct.tm_mday > 0) && (userDateStruct.tm_mday <= maxNumberOfDays)
+            && (userDateStruct.tm_year >= 100) && (userDate <= currentDate))
             return true;
         else
             return false;
@@ -105,11 +116,9 @@ vector <int> DateMenager::getCurrentMonthDates()
     string stringDate = "";
     int lastDate = 0;
     char buffer[11];
-    time_t rawtime;
     struct tm *timeinfo;
 
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
+    timeinfo = getCurrentDateStruct();
 
     strftime(buffer, sizeof(buffer), "%Y-%m-%d", timeinfo);
     stringDate = convertCharArrayToString(buffer);
@@ -131,13 +140,11 @@ vector <int> DateMenager::getLastMonthDates()
 {
     vector <int> dates;
     string stringDate = "";
-    int maxNumberOfDays = 0;
     char buffer[11];
-    time_t rawtime;
+    int maxNumberOfDays = 0;
     struct tm *timeinfo;
 
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
+    timeinfo = getCurrentDateStruct();
 
     if (timeinfo -> tm_mon == 0)
     {
