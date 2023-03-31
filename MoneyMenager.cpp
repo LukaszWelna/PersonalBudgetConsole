@@ -150,11 +150,11 @@ void MoneyMenager::showBalance(vector <int> dates)
 
     sumOfIncomes = showIncomes(dates);
     sumOfExpenses = showExpenses(dates);
-    cout << "SUM OF INCOMES: " << sumOfIncomes << endl;
+    cout << "SUM OF INCOMES: " << setprecision (2) << fixed << sumOfIncomes << endl;
     cout << "-----------------------------" << endl;
-    cout << "SUM OF EXPENSES: " << sumOfExpenses << endl;
+    cout << "SUM OF EXPENSES: " << setprecision (2) << fixed << sumOfExpenses << endl;
     cout << "-----------------------------" << endl;
-    cout << "FINANCIAL BALANCE: " << sumOfIncomes - sumOfExpenses << endl;
+    cout << "FINANCIAL BALANCE: " << setprecision (2) << fixed << sumOfIncomes - sumOfExpenses << endl;
     cout << endl;
     system("pause");
 }
@@ -173,7 +173,6 @@ double MoneyMenager::showIncomes(vector <int> dates)
             {
                 cout << "Date: " << DateMenager::convertIntDateToString(incomes[i].getDate()) << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
                 sum += incomes[i].getAmount();
-                cout << incomes[i].getAmount() << endl;
                 incomesNotShowed = false;
             }
         }
