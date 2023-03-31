@@ -37,14 +37,21 @@ Income MoneyMenager::getNewIncomeData()
 
     if (income.getDate())
     {
+        double amount = 0;
         system("cls");
         cout << ">>> ADDING NEW INCOME <<<" << endl << endl;
 
         income.setId(xmlFileWithUserIncomes.getLastIncomeId() + 1);
         cout << "Enter source of income: ";
         income.setItem(AuxiliaryMethods::readLine());
-        cout << "Enter amount of income: ";
-        income.setAmount(AuxiliaryMethods::readNumber());
+        do
+        {
+            cout << "Enter amount of income: ";
+            amount = AuxiliaryMethods::convertStringToDouble(AuxiliaryMethods::readLine());
+        }
+        while(amount < 0);
+
+        income.setAmount(amount);
     }
     else
         cout << endl << "Wrong date format." << endl;
@@ -115,14 +122,21 @@ Expense MoneyMenager::getNewExpenseData()
 
     if (expense.getDate())
     {
+        double amount = 0;
         system("cls");
         cout << " >>> ADDING NEW EXPENSE <<<" << endl << endl;
 
         expense.setId(xmlFileWithUserExpenses.getLastExpenseId() + 1);
         cout << "Enter source of expense: ";
         expense.setItem(AuxiliaryMethods::readLine());
-        cout << "Enter amount of expense: ";
-        expense.setAmount(AuxiliaryMethods::readNumber());
+        do
+        {
+            cout << "Enter amount of expense: ";
+            amount = AuxiliaryMethods::convertStringToDouble(AuxiliaryMethods::readLine());
+        }
+        while(amount < 0);
+
+        expense.setAmount(amount);
     }
     else
         cout << endl << "Wrong date format." << endl;
@@ -132,7 +146,7 @@ Expense MoneyMenager::getNewExpenseData()
 
 void MoneyMenager::showBalance(vector <int> dates)
 {
-    int sumOfIncomes = 0, sumOfExpenses = 0;
+    double sumOfIncomes = 0, sumOfExpenses = 0;
 
     sumOfIncomes = showIncomes(dates);
     sumOfExpenses = showExpenses(dates);
@@ -145,10 +159,10 @@ void MoneyMenager::showBalance(vector <int> dates)
     system("pause");
 }
 
-int MoneyMenager::showIncomes(vector <int> dates)
+double MoneyMenager::showIncomes(vector <int> dates)
 {
     bool incomesNotShowed = true;
-    int sum = 0;
+    double sum = 0;
     if (!incomes.empty())
     {
         cout << ">>> INCOMES <<<" << endl;
@@ -159,6 +173,7 @@ int MoneyMenager::showIncomes(vector <int> dates)
             {
                 cout << "Date: " << DateMenager::convertIntDateToString(incomes[i].getDate()) << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
                 sum += incomes[i].getAmount();
+                cout << incomes[i].getAmount() << endl;
                 incomesNotShowed = false;
             }
         }
@@ -172,10 +187,10 @@ int MoneyMenager::showIncomes(vector <int> dates)
     return sum;
 }
 
-int MoneyMenager::showExpenses(vector <int> dates)
+double MoneyMenager::showExpenses(vector <int> dates)
 {
     bool expensesNotShowed = true;
-    int sum = 0;
+    double sum = 0;
     if (!expenses.empty())
     {
         cout << ">>> EXPENSES <<<" << endl;

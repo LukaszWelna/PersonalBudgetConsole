@@ -27,8 +27,8 @@ class MoneyMenager
     Expense getNewExpenseData();
     int getDate();
     void showBalance(vector <int> dates);
-    int showIncomes(vector <int> dates);
-    int showExpenses(vector <int> dates);
+    double showIncomes(vector <int> dates);
+    double showExpenses(vector <int> dates);
 
 public:
     // CONSTRUCTOR

@@ -12,7 +12,7 @@ class Expense
     int userId;
     int date;
     string item;
-    int amount;
+    double amount;
 
     // METHODS
 public:
@@ -21,14 +21,14 @@ public:
     int getUserId();
     int getDate();
     string getItem();
-    int getAmount();
+    double getAmount();
 
     // SETTERS
     void setId(int id);
     void setUserId(int userId);
     void setDate(int date);
     void setItem(string item);
-    void setAmount(int amount);
+    void setAmount(double amount);
 
     bool operator < (Expense &expense)
     {

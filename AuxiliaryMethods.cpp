@@ -48,6 +48,14 @@ string AuxiliaryMethods::convertIntToString(int number)
     return str;
 }
 
+string AuxiliaryMethods::convertDoubleToString(double number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
 int AuxiliaryMethods::convertStringToInt(string stringNumber)
 {
     int number;
@@ -76,4 +84,29 @@ string AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(string text)
         text[0] = toupper(text[0]);
     }
     return text;
+}
+
+double AuxiliaryMethods::convertStringToDouble(string stringNumber)
+{
+    double number = 0;
+    size_t commaPosition = stringNumber.find(",");
+    if (commaPosition != string::npos)
+    {
+        stringNumber.replace(commaPosition, 1, ".");
+    }
+
+    try {
+        number = stod(stringNumber);
+        if (number < 0)
+            throw "err";
+    }
+    catch (...)
+    {
+        cout << endl << "Wrong value. Try again." << endl << endl;
+        number = -1;
+    }
+
+    number = round(number * 100.0)/ 100.0;
+
+    return number;
 }
