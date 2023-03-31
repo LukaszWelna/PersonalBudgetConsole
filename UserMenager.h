@@ -29,7 +29,6 @@ public:
     }
     // GETTERS
     int getLoggedUserId();
-
     void userSignUp();
     void userLogin();
     void changeLoggedUserPassword();

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>7</zoom_level>
+  <zoom_level>3</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>826</x>
-      <y>217</y>
-      <w>238</w>
-      <h>273</h>
+      <x>849</x>
+      <y>423</y>
+      <w>102</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>PersonalBudget
 --
@@ -38,10 +38,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>889</y>
-      <w>196</w>
-      <h>273</h>
+      <x>495</x>
+      <y>711</y>
+      <w>84</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -57,10 +57,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>497</y>
-      <w>245</w>
-      <h>273</h>
+      <x>495</x>
+      <y>543</y>
+      <w>105</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>AuxiliaryMethods
 --
@@ -68,19 +68,21 @@ _+ readSign() : Char_
 _+ readLine() : String_
 _+ readNumber() : Float_
 _+ convertIntToString() : String_
+_+ convertDoubleToString() : String_
 _+ convertStringToInt() : Integer_
 _+ retrieveIntFromString() : String_
 _+ changeFirstLetterToUpperAndOtherToLower() : String_
+_+ convertStringToDouble() : Double_
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
-      <y>441</y>
-      <w>189</w>
-      <h>273</h>
+      <x>759</x>
+      <y>519</y>
+      <w>81</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>UserMenager
 --
@@ -92,6 +94,7 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
 - retrieveNewUserId : Integer
 - checkLoginExists : Bool
 + UserMenager()
++ getLoggedUserId() : Integer
 + userSignUp() : Void
 + userLogin() : Integer
 + changeLoggedUserPassword() : Void
@@ -102,10 +105,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
-      <y>1267</y>
-      <w>224</w>
-      <h>273</h>
+      <x>759</x>
+      <y>873</y>
+      <w>96</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>XmlFileWithUsers
 --
@@ -120,10 +123,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>1267</y>
-      <w>196</w>
-      <h>273</h>
+      <x>495</x>
+      <y>873</y>
+      <w>84</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>XmlFile
 --
@@ -135,10 +138,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>189</x>
-      <y>1442</y>
-      <w>441</w>
-      <h>21</h>
+      <x>576</x>
+      <y>948</y>
+      <w>189</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;610.0;10.0</additional_attributes>
@@ -146,10 +149,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>133</x>
-      <y>1435</y>
-      <w>966</w>
-      <h>161</h>
+      <x>552</x>
+      <y>945</y>
+      <w>414</w>
+      <h>69</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;150.0;10.0;210.0;1210.0;210.0;1210.0;10.0;1360.0;10.0</additional_attributes>
@@ -157,10 +160,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>707</x>
-      <y>329</y>
-      <w>133</w>
-      <h>126</h>
+      <x>798</x>
+      <y>471</y>
+      <w>57</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>170.0;10.0;10.0;10.0;10.0;160.0</additional_attributes>
@@ -168,10 +171,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1057</x>
-      <y>329</y>
-      <w>98</w>
-      <h>224</h>
+      <x>948</x>
+      <y>471</y>
+      <w>42</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;120.0;10.0;120.0;300.0</additional_attributes>
@@ -179,10 +182,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>189</x>
-      <y>518</y>
-      <w>441</w>
-      <h>497</h>
+      <x>576</x>
+      <y>552</y>
+      <w>189</w>
+      <h>213</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>610.0;10.0;270.0;10.0;270.0;690.0;10.0;690.0</additional_attributes>
@@ -190,10 +193,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>707</x>
-      <y>707</y>
-      <w>21</w>
-      <h>574</h>
+      <x>798</x>
+      <y>633</y>
+      <w>9</w>
+      <h>246</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;800.0</additional_attributes>
@@ -201,10 +204,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
-      <y>623</y>
-      <w>392</w>
-      <h>21</h>
+      <x>597</x>
+      <y>597</y>
+      <w>168</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>540.0;10.0;10.0;10.0</additional_attributes>
@@ -212,10 +215,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>112</x>
-      <y>763</y>
-      <w>518</w>
-      <h>602</h>
+      <x>543</x>
+      <y>657</y>
+      <w>222</w>
+      <h>258</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>720.0;840.0;540.0;840.0;540.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
@@ -223,10 +226,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>77</x>
-      <y>763</y>
-      <w>1022</w>
-      <h>602</h>
+      <x>528</x>
+      <y>657</y>
+      <w>438</w>
+      <h>258</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1440.0;840.0;1140.0;840.0;1140.0;140.0;10.0;140.0;10.0;10.0</additional_attributes>
@@ -234,10 +237,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1176</x>
-      <y>805</y>
-      <w>21</w>
-      <h>476</h>
+      <x>999</x>
+      <y>675</y>
+      <w>9</w>
+      <h>204</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
@@ -245,10 +248,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>189</x>
-      <y>1071</y>
-      <w>441</w>
-      <h>343</h>
+      <x>576</x>
+      <y>789</y>
+      <w>189</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>610.0;470.0;270.0;470.0;270.0;10.0;10.0;10.0</additional_attributes>
@@ -256,10 +259,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1351</x>
-      <y>371</y>
-      <w>140</w>
-      <h>994</h>
+      <x>1074</x>
+      <y>489</y>
+      <w>60</w>
+      <h>426</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;1400.0;180.0;1400.0;180.0;10.0</additional_attributes>
@@ -267,10 +270,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1085</x>
-      <y>539</y>
-      <w>189</w>
-      <h>273</h>
+      <x>960</x>
+      <y>561</y>
+      <w>81</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>MoneyMenager
 --
@@ -297,10 +300,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1085</x>
-      <y>1267</y>
-      <w>273</w>
-      <h>273</h>
+      <x>960</x>
+      <y>873</y>
+      <w>117</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>XmlFileWithIncomes
 --
@@ -315,10 +318,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1540</x>
-      <y>1267</y>
-      <w>273</w>
-      <h>273</h>
+      <x>1155</x>
+      <y>873</y>
+      <w>117</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>XmlFileWithExpenses
 --
@@ -333,10 +336,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1358</x>
-      <y>105</y>
-      <w>196</w>
-      <h>273</h>
+      <x>1077</x>
+      <y>375</y>
+      <w>84</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>Income
 --
@@ -344,7 +347,7 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
 - userId : Integer
 - date : Integer
 - item : String
-- amount : Integer
+- amount : Double
 --
 + operator &lt; () : Bool
 </panel_attributes>
@@ -353,10 +356,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1701</x>
-      <y>105</y>
-      <w>196</w>
-      <h>273</h>
+      <x>1224</x>
+      <y>375</y>
+      <w>84</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>Expense
 --
@@ -364,7 +367,7 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
 - userId : Integer
 - date : Integer
 - item : String
-- amount : Integer
+- amount : Double
 --
 + operator &lt; () : Bool
 </panel_attributes>
@@ -373,10 +376,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1806</x>
-      <y>280</y>
-      <w>217</w>
-      <h>1078</h>
+      <x>1269</x>
+      <y>450</y>
+      <w>93</w>
+      <h>462</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;1520.0;290.0;1520.0;290.0;10.0;130.0;10.0</additional_attributes>
@@ -384,10 +387,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>56</x>
-      <y>1533</y>
-      <w>1638</w>
-      <h>161</h>
+      <x>519</x>
+      <y>987</y>
+      <w>702</w>
+      <h>69</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;210.0;2320.0;200.0;2320.0;10.0</additional_attributes>
@@ -395,10 +398,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1267</x>
-      <y>371</y>
-      <w>168</w>
-      <h>399</h>
+      <x>1038</x>
+      <y>489</y>
+      <w>72</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;550.0;220.0;550.0;220.0;10.0</additional_attributes>
@@ -406,10 +409,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1267</x>
-      <y>672</y>
-      <w>392</w>
-      <h>609</h>
+      <x>1038</x>
+      <y>618</y>
+      <w>168</w>
+      <h>261</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;540.0;10.0;530.0;850.0</additional_attributes>
@@ -417,10 +420,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1267</x>
-      <y>371</y>
-      <w>553</w>
-      <h>273</h>
+      <x>1038</x>
+      <y>489</y>
+      <w>237</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;370.0;770.0;370.0;770.0;10.0</additional_attributes>
@@ -428,10 +431,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
-      <y>742</y>
-      <w>861</w>
-      <h>21</h>
+      <x>597</x>
+      <y>648</y>
+      <w>369</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1210.0;10.0;10.0;10.0</additional_attributes>
@@ -439,10 +442,10 @@ _+ changeFirstLetterToUpperAndOtherToLower() : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1099</x>
-      <y>0</y>
-      <w>224</w>
-      <h>273</h>
+      <x>966</x>
+      <y>330</y>
+      <w>96</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>DateMenager
 --
@@ -451,13 +454,14 @@ _- calculateDaysInMonth() : Integer_
 _- convertStringToTimeStruct() : Struct tm_
 _- convertDateToInt() : Integer_
 _- checkDateFormat() : Bool_
+_- getCurrentDateStruct() : Struct tm *
 _+ convertIntDateToString() : String_
 _+ getCurrentDate() : Integer_
 _+ getUserDate() : Integer_
 _+ compareDates() : Bool_
 _+ getCurrentMonthDates() : vector &lt;Integer&gt;_
-_+ getPreviousMonthDates() : vector &lt;Integer&gt;_
-_+ getCustomMonthDates() : vector &lt;Integer&gt;_
+_+ getLastMonthDates() : vector &lt;Integer&gt;_
+_+ getCustomDates() : vector &lt;Integer&gt;_
 
 
 </panel_attributes>
@@ -466,10 +470,10 @@ _+ getCustomMonthDates() : vector &lt;Integer&gt;_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1211</x>
-      <y>266</y>
-      <w>21</w>
-      <h>287</h>
+      <x>1014</x>
+      <y>444</y>
+      <w>9</w>
+      <h>123</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;390.0;10.0;10.0</additional_attributes>
