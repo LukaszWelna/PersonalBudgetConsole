@@ -12,7 +12,6 @@ void XmlFileWithUserExpenses::setLastExpenseId(int lastExpenseId)
 
 vector <Expense> XmlFileWithUserExpenses::loadExpensesFromXmlFile(int loggedUserId)
 {
-    CMarkup xml;
     Expense expense;
     vector <Expense> expenses;
     lastExpenseId = 0;
@@ -53,7 +52,6 @@ vector <Expense> XmlFileWithUserExpenses::loadExpensesFromXmlFile(int loggedUser
 
 bool XmlFileWithUserExpenses::addExpenseToXmlFile(Expense expense)
 {
-    CMarkup xml;
     bool loadSuccess = xml.Load(getFileName());
 
     if (!loadSuccess)

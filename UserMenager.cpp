@@ -136,7 +136,7 @@ void UserMenager::userLogin()
                     return;
                 }
             }
-            cout << "Wrong password entered 3 times." << endl;
+            cout << endl << "Wrong password entered 3 times." << endl << endl;
             system("pause");
             idLoggedUser = 0;
             return;
@@ -166,9 +166,9 @@ void UserMenager::changeLoggedUserPassword()
     cout << " >>> CHANGING USER PASSWORD <<<" << endl << endl;
     cout << "Enter new password: ";
     newPassword = AuxiliaryMethods::readLine();
-    vector <User>::iterator it = users.begin();
+    vector <User>::iterator it;
 
-    for (it; it != users.end(); it++)
+    for (it = users.begin(); it != users.end(); it++)
     {
         if (it -> getId() == idLoggedUser)
         {
