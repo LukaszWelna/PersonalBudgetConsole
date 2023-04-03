@@ -12,7 +12,6 @@ void XmlFileWithUserIncomes::setLastIncomeId(int lastIncomeId)
 
 vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
 {
-    CMarkup xml;
     Income income;
     vector <Income> incomes;
     lastIncomeId = 0;
@@ -52,7 +51,6 @@ vector <Income> XmlFileWithUserIncomes::loadIncomesFromXmlFile(int loggedUserId)
 
 bool XmlFileWithUserIncomes::addIncomeToXmlFile(Income income)
 {
-    CMarkup xml;
     bool loadSuccess = xml.Load(getFileName());
 
     if (!loadSuccess)

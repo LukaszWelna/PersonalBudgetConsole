@@ -171,7 +171,8 @@ double MoneyMenager::showIncomes(vector <int> dates)
         {
             if ((incomes[i].getDate() >= dates[0]) && (incomes[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << DateMenager::convertIntDateToString(incomes[i].getDate()) << " | Item: " << incomes[i].getItem() << " | Amount: " << incomes[i].getAmount() << endl;
+                cout << "Date: " << DateMenager::convertIntDateToString(incomes[i].getDate()) << " | Item: "
+                    << incomes[i].getItem() << " | Amount: " << setprecision (2) << fixed << incomes[i].getAmount() << endl;
                 sum += incomes[i].getAmount();
                 incomesNotShowed = false;
             }
@@ -198,7 +199,8 @@ double MoneyMenager::showExpenses(vector <int> dates)
         {
             if ((expenses[i].getDate() >= dates[0]) && (expenses[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << DateMenager::convertIntDateToString(expenses[i].getDate()) << " | Item: " << expenses[i].getItem() << " | Amount: " << expenses[i].getAmount() << endl;
+                cout << "Date: " << DateMenager::convertIntDateToString(expenses[i].getDate()) << " | Item: "
+                    << expenses[i].getItem() << " | Amount: " << setprecision (2) << fixed << expenses[i].getAmount() << endl;
                 sum += expenses[i].getAmount();
                 expensesNotShowed = false;
             }

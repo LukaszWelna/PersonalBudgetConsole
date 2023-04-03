@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "Markup.h"
 
 using namespace std;
 
@@ -10,6 +11,8 @@ class XmlFile
 {
     // ATTRIBUTES
     const string FILE_NAME;
+protected:
+    CMarkup xml;
 
     // METHODS
 public:
