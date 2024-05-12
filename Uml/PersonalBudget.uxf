@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>3</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>849</x>
-      <y>423</y>
-      <w>102</w>
-      <h>117</h>
+      <x>1062</x>
+      <y>279</y>
+      <w>306</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>PersonalBudget
 --
-- userMenager : UserMenager
-- moneyMenager : MoneyMenager
+- userManager : UserManager
+- moneyManager : MoneyManager
 - FILE_NAME_WITH_USERS : String
 - FILE_NAME_WITH_INCOMES : String
 - FILE_NAME_WITH_EXPENSES : String
@@ -38,10 +38,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>495</x>
-      <y>711</y>
-      <w>84</w>
-      <h>117</h>
+      <x>0</x>
+      <y>1143</y>
+      <w>252</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -57,10 +57,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>495</x>
-      <y>543</y>
-      <w>105</w>
-      <h>117</h>
+      <x>0</x>
+      <y>639</y>
+      <w>315</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>AuxiliaryMethods
 --
@@ -79,12 +79,12 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>759</x>
-      <y>519</y>
-      <w>81</w>
-      <h>117</h>
+      <x>792</x>
+      <y>567</y>
+      <w>243</w>
+      <h>351</h>
     </coordinates>
-    <panel_attributes>UserMenager
+    <panel_attributes>UserManager
 --
 - idLoggedUser : Integer
 - users : vector &lt;User&gt;
@@ -93,7 +93,7 @@ _+ convertStringToDouble() : Double_
 - getNewUserData : User
 - retrieveNewUserId : Integer
 - checkLoginExists : Bool
-+ UserMenager()
++ UserManager()
 + getLoggedUserId() : Integer
 + userSignUp() : Void
 + userLogin() : Integer
@@ -105,10 +105,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>759</x>
-      <y>873</y>
-      <w>96</w>
-      <h>117</h>
+      <x>792</x>
+      <y>1629</y>
+      <w>288</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>XmlFileWithUsers
 --
@@ -123,10 +123,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>495</x>
-      <y>873</y>
-      <w>84</w>
-      <h>117</h>
+      <x>0</x>
+      <y>1629</y>
+      <w>252</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>XmlFile
 --
@@ -138,10 +138,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>948</y>
-      <w>189</w>
-      <h>9</h>
+      <x>243</x>
+      <y>1854</y>
+      <w>567</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;610.0;10.0</additional_attributes>
@@ -149,10 +149,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>945</y>
-      <w>414</w>
-      <h>69</h>
+      <x>171</x>
+      <y>1845</y>
+      <w>1242</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;150.0;10.0;210.0;1210.0;210.0;1210.0;10.0;1360.0;10.0</additional_attributes>
@@ -160,10 +160,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
-      <y>471</y>
-      <w>57</w>
-      <h>54</h>
+      <x>909</x>
+      <y>423</y>
+      <w>171</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>170.0;10.0;10.0;10.0;10.0;160.0</additional_attributes>
@@ -171,10 +171,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>948</x>
-      <y>471</y>
-      <w>42</w>
-      <h>96</h>
+      <x>1359</x>
+      <y>423</y>
+      <w>126</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;120.0;10.0;120.0;300.0</additional_attributes>
@@ -182,10 +182,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>552</y>
-      <w>189</w>
-      <h>213</h>
+      <x>243</x>
+      <y>666</y>
+      <w>567</w>
+      <h>639</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>610.0;10.0;270.0;10.0;270.0;690.0;10.0;690.0</additional_attributes>
@@ -193,10 +193,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
-      <y>633</y>
-      <w>9</w>
-      <h>246</h>
+      <x>909</x>
+      <y>909</y>
+      <w>27</w>
+      <h>738</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;800.0</additional_attributes>
@@ -204,10 +204,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>597</x>
-      <y>597</y>
-      <w>168</w>
-      <h>9</h>
+      <x>306</x>
+      <y>801</y>
+      <w>504</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>540.0;10.0;10.0;10.0</additional_attributes>
@@ -215,10 +215,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>543</x>
-      <y>657</y>
-      <w>222</w>
-      <h>258</h>
+      <x>144</x>
+      <y>981</y>
+      <w>666</w>
+      <h>774</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>720.0;840.0;540.0;840.0;540.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
@@ -226,10 +226,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>657</y>
-      <w>438</w>
-      <h>258</h>
+      <x>99</x>
+      <y>981</y>
+      <w>1314</w>
+      <h>774</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1440.0;840.0;1140.0;840.0;1140.0;140.0;10.0;140.0;10.0;10.0</additional_attributes>
@@ -237,10 +237,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>999</x>
-      <y>675</y>
-      <w>9</w>
-      <h>204</h>
+      <x>1512</x>
+      <y>1035</y>
+      <w>27</w>
+      <h>612</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
@@ -248,10 +248,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>789</y>
-      <w>189</w>
-      <h>147</h>
+      <x>243</x>
+      <y>1377</y>
+      <w>567</w>
+      <h>441</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>610.0;470.0;270.0;470.0;270.0;10.0;10.0;10.0</additional_attributes>
@@ -259,10 +259,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1074</x>
-      <y>489</y>
-      <w>60</w>
-      <h>426</h>
+      <x>1737</x>
+      <y>477</y>
+      <w>180</w>
+      <h>1278</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;1400.0;180.0;1400.0;180.0;10.0</additional_attributes>
@@ -270,12 +270,12 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>561</y>
-      <w>81</w>
-      <h>117</h>
+      <x>1395</x>
+      <y>693</y>
+      <w>243</w>
+      <h>351</h>
     </coordinates>
-    <panel_attributes>MoneyMenager
+    <panel_attributes>MoneyManager
 --
 - LOGGED_USER_ID : Integer
 - incomes : vector &lt;Income&gt;
@@ -289,7 +289,7 @@ _+ convertStringToDouble() : Double_
 - showBalance() : Void
 - showIncomes() : Integer
 - showExpenses() : Integer
-+ MoneyMenager()
++ MoneyManager()
 + addIncome() : Void
 + addExpense() : Void
 + showCurrentMonthBalance() : Void
@@ -300,10 +300,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>873</y>
-      <w>117</w>
-      <h>117</h>
+      <x>1395</x>
+      <y>1629</y>
+      <w>351</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>XmlFileWithIncomes
 --
@@ -318,10 +318,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1155</x>
-      <y>873</y>
-      <w>117</w>
-      <h>117</h>
+      <x>1980</x>
+      <y>1629</y>
+      <w>351</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>XmlFileWithExpenses
 --
@@ -336,10 +336,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1077</x>
-      <y>375</y>
-      <w>84</w>
-      <h>117</h>
+      <x>1746</x>
+      <y>135</y>
+      <w>252</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>Income
 --
@@ -356,10 +356,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1224</x>
-      <y>375</y>
-      <w>84</w>
-      <h>117</h>
+      <x>2187</x>
+      <y>135</y>
+      <w>252</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>Expense
 --
@@ -376,10 +376,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1269</x>
-      <y>450</y>
-      <w>93</w>
-      <h>462</h>
+      <x>2322</x>
+      <y>360</y>
+      <w>279</w>
+      <h>1386</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;1520.0;290.0;1520.0;290.0;10.0;130.0;10.0</additional_attributes>
@@ -387,10 +387,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>519</x>
-      <y>987</y>
-      <w>702</w>
-      <h>69</h>
+      <x>72</x>
+      <y>1971</y>
+      <w>2106</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;210.0;2320.0;200.0;2320.0;10.0</additional_attributes>
@@ -398,10 +398,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1038</x>
-      <y>489</y>
-      <w>72</w>
-      <h>171</h>
+      <x>1629</x>
+      <y>477</y>
+      <w>216</w>
+      <h>513</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;550.0;220.0;550.0;220.0;10.0</additional_attributes>
@@ -409,10 +409,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1038</x>
-      <y>618</y>
-      <w>168</w>
-      <h>261</h>
+      <x>1629</x>
+      <y>864</y>
+      <w>504</w>
+      <h>783</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;540.0;10.0;530.0;850.0</additional_attributes>
@@ -420,10 +420,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1038</x>
-      <y>489</y>
-      <w>237</w>
-      <h>117</h>
+      <x>1629</x>
+      <y>477</y>
+      <w>711</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;370.0;770.0;370.0;770.0;10.0</additional_attributes>
@@ -431,10 +431,10 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>597</x>
-      <y>648</y>
-      <w>369</w>
-      <h>9</h>
+      <x>306</x>
+      <y>954</y>
+      <w>1107</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1210.0;10.0;10.0;10.0</additional_attributes>
@@ -442,12 +442,12 @@ _+ convertStringToDouble() : Double_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>966</x>
-      <y>330</y>
-      <w>96</w>
-      <h>117</h>
+      <x>1413</x>
+      <y>0</y>
+      <w>288</w>
+      <h>351</h>
     </coordinates>
-    <panel_attributes>DateMenager
+    <panel_attributes>DateManager
 --
 _- convertCharArrayToString() : String_
 _- calculateDaysInMonth() : Integer_
@@ -470,10 +470,10 @@ _+ getCustomDates() : vector &lt;Integer&gt;_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1014</x>
-      <y>444</y>
-      <w>9</w>
-      <h>123</h>
+      <x>1557</x>
+      <y>342</y>
+      <w>27</w>
+      <h>369</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;390.0;10.0;10.0</additional_attributes>

@@ -1,5 +1,5 @@
-#ifndef MONEYMENAGER_H
-#define MONEYMENAGER_H
+#ifndef MONEYMANAGER_H
+#define MONEYMANAGER_H
 
 #include <iostream>
 #include <vector>
@@ -8,13 +8,13 @@
 #include "Income.h"
 #include "Expense.h"
 #include "AuxiliaryMethods.h"
-#include "DateMenager.h"
+#include "DateManager.h"
 #include "XmlFileWithUserIncomes.h"
 #include "XmlFileWithUserExpenses.h"
 
 using namespace std;
 
-class MoneyMenager
+class MoneyManager
 {
     // ATTRIBUTES
     const int LOGGED_USER_ID;
@@ -33,7 +33,7 @@ class MoneyMenager
 
 public:
     // CONSTRUCTOR
-    MoneyMenager(int loggedUserId, string fileNameWithIncomes, string fileNameWithExpenses)
+    MoneyManager(int loggedUserId, string fileNameWithIncomes, string fileNameWithExpenses)
         : LOGGED_USER_ID(loggedUserId), xmlFileWithUserIncomes(fileNameWithIncomes), xmlFileWithUserExpenses(fileNameWithExpenses)
     {
         incomes = xmlFileWithUserIncomes.loadIncomesFromXmlFile(LOGGED_USER_ID);
@@ -50,5 +50,5 @@ public:
 };
 
 
-#endif // MONEYMENAGER_H
+#endif // MONEYMANAGER_H
 

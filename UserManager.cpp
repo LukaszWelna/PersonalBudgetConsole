@@ -1,12 +1,12 @@
-#include "UserMenager.h"
+#include "UserManager.h"
 
 //GETTERS
-int UserMenager::getLoggedUserId()
+int UserManager::getLoggedUserId()
 {
     return idLoggedUser;
 }
 
-void UserMenager::userSignUp()
+void UserManager::userSignUp()
 {
     User user;
 
@@ -30,7 +30,7 @@ void UserMenager::userSignUp()
     }
 }
 
-User UserMenager::getNewUserData()
+User UserManager::getNewUserData()
 {
     User user;
 
@@ -84,7 +84,7 @@ User UserMenager::getNewUserData()
     return user;
 }
 
-int UserMenager::retrieveNewUserId()
+int UserManager::retrieveNewUserId()
 {
     if (users.empty())
     {
@@ -96,7 +96,7 @@ int UserMenager::retrieveNewUserId()
     }
 }
 
-bool UserMenager::checkLoginExists(string login)
+bool UserManager::checkLoginExists(string login)
 {
     for (int i = 0; i < (int) users.size(); i++)
     {
@@ -108,7 +108,7 @@ bool UserMenager::checkLoginExists(string login)
     return false;
 }
 
-void UserMenager::userLogin()
+void UserManager::userLogin()
 {
     User user;
     string login = "", password = "";
@@ -149,7 +149,7 @@ void UserMenager::userLogin()
     return;
 }
 
-void UserMenager::userLogout()
+void UserManager::userLogout()
 {
     idLoggedUser = 0;
     system("cls");
@@ -159,7 +159,7 @@ void UserMenager::userLogout()
     system("pause");
 }
 
-void UserMenager::changeLoggedUserPassword()
+void UserManager::changeLoggedUserPassword()
 {
     string newPassword = "";
     system("cls");

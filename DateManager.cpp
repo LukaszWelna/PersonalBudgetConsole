@@ -1,6 +1,6 @@
-#include "DateMenager.h"
+#include "DateManager.h"
 
-struct tm * DateMenager::getCurrentDateStruct()
+struct tm * DateManager::getCurrentDateStruct()
 {
     time_t rawtime;
     struct tm *timeinfo;
@@ -10,7 +10,7 @@ struct tm * DateMenager::getCurrentDateStruct()
     return timeinfo;
 };
 
-int DateMenager::getCurrentDate()
+int DateManager::getCurrentDate()
 {
     string date = "";
     char buffer[11];
@@ -24,7 +24,7 @@ int DateMenager::getCurrentDate()
     return convertDateToInt(date);
 }
 
-string DateMenager::convertCharArrayToString(char array[])
+string DateManager::convertCharArrayToString(char array[])
 {
     if (array[0] == '\0')
         return "";
@@ -32,13 +32,13 @@ string DateMenager::convertCharArrayToString(char array[])
     return string(array);
 }
 
-int DateMenager::convertDateToInt(string date)
+int DateManager::convertDateToInt(string date)
 {
     date.erase(remove(date.begin(), date.end(), '-'), date.end());
     return AuxiliaryMethods::convertStringToInt(date);
 }
 
-int DateMenager::getUserDate()
+int DateManager::getUserDate()
 {
     string date = "";
     cout << "Enter date: ";
@@ -49,7 +49,7 @@ int DateMenager::getUserDate()
         return 0;
 }
 
-bool DateMenager::checkDateFormat(string date)
+bool DateManager::checkDateFormat(string date)
 {
     // DATE FORMAT PATTERN
     regex pattern("\\d{4}[-]\\d{2}[-]\\d{2}");
@@ -70,7 +70,7 @@ bool DateMenager::checkDateFormat(string date)
         return false;
 }
 
-struct tm DateMenager::convertStringToTimeStruct(string date)
+struct tm DateManager::convertStringToTimeStruct(string date)
 {
     struct tm timeinfo;
     int year = 0, month = 0, day = 0;
@@ -88,7 +88,7 @@ struct tm DateMenager::convertStringToTimeStruct(string date)
     return timeinfo;
 }
 
-string DateMenager::convertIntDateToString(int date)
+string DateManager::convertIntDateToString(int date)
 {
     string stringDate = "";
     stringDate = AuxiliaryMethods::convertIntToString(date);
@@ -98,7 +98,7 @@ string DateMenager::convertIntDateToString(int date)
     return stringDate;
 }
 
-int DateMenager::calculateDaysInMonth(int year, int month)
+int DateManager::calculateDaysInMonth(int year, int month)
 {
     int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
@@ -110,7 +110,7 @@ int DateMenager::calculateDaysInMonth(int year, int month)
         return daysInMonth[month - 1];
 }
 
-vector <int> DateMenager::getCurrentMonthDates()
+vector <int> DateManager::getCurrentMonthDates()
 {
     vector <int> dates;
     string stringDate = "";
@@ -136,7 +136,7 @@ vector <int> DateMenager::getCurrentMonthDates()
     return dates;
 }
 
-vector <int> DateMenager::getLastMonthDates()
+vector <int> DateManager::getLastMonthDates()
 {
     vector <int> dates;
     string stringDate = "";
@@ -171,7 +171,7 @@ vector <int> DateMenager::getLastMonthDates()
     return dates;
 }
 
-vector <int> DateMenager::getCustomDates()
+vector <int> DateManager::getCustomDates()
 {
     vector <int> dates;
     string userDate1 = "", userDate2 = "";

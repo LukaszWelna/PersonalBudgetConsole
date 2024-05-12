@@ -1,6 +1,6 @@
-#include "MoneyMenager.h"
+#include "MoneyManager.h"
 
-void MoneyMenager::addIncome()
+void MoneyManager::addIncome()
 {
     Income income;
 
@@ -28,7 +28,7 @@ void MoneyMenager::addIncome()
     system("pause");
 }
 
-Income MoneyMenager::getNewIncomeData()
+Income MoneyManager::getNewIncomeData()
 {
     string line = "";
     Income income;
@@ -59,7 +59,7 @@ Income MoneyMenager::getNewIncomeData()
     return income;
 }
 
-int MoneyMenager::getDate()
+int MoneyManager::getDate()
 {
     char choice;
     int date = 0;
@@ -72,12 +72,12 @@ int MoneyMenager::getDate()
     switch (choice)
     {
     case '1':
-        date = DateMenager::getCurrentDate();
+        date = DateManager::getCurrentDate();
         break;
     case '2':
         system("cls");
         cout << ">>> GETTING USER DATE <<<" << endl << endl;
-        date = DateMenager::getUserDate();
+        date = DateManager::getUserDate();
         break;
     default:
         system("cls");
@@ -86,7 +86,7 @@ int MoneyMenager::getDate()
     return date;
 }
 
-void MoneyMenager::addExpense()
+void MoneyManager::addExpense()
 {
     Expense expense;
 
@@ -114,7 +114,7 @@ void MoneyMenager::addExpense()
     system("pause");
 }
 
-Expense MoneyMenager::getNewExpenseData()
+Expense MoneyManager::getNewExpenseData()
 {
     Expense expense;
     expense.setUserId(LOGGED_USER_ID);
@@ -144,7 +144,7 @@ Expense MoneyMenager::getNewExpenseData()
     return expense;
 }
 
-void MoneyMenager::showBalance(vector <int> dates)
+void MoneyManager::showBalance(vector <int> dates)
 {
     double sumOfIncomes = 0, sumOfExpenses = 0;
 
@@ -159,7 +159,7 @@ void MoneyMenager::showBalance(vector <int> dates)
     system("pause");
 }
 
-double MoneyMenager::showIncomes(vector <int> dates)
+double MoneyManager::showIncomes(vector <int> dates)
 {
     bool incomesNotShowed = true;
     double sum = 0;
@@ -171,7 +171,7 @@ double MoneyMenager::showIncomes(vector <int> dates)
         {
             if ((incomes[i].getDate() >= dates[0]) && (incomes[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << DateMenager::convertIntDateToString(incomes[i].getDate()) << " | Item: "
+                cout << "Date: " << DateManager::convertIntDateToString(incomes[i].getDate()) << " | Item: "
                     << incomes[i].getItem() << " | Amount: " << setprecision (2) << fixed << incomes[i].getAmount() << endl;
                 sum += incomes[i].getAmount();
                 incomesNotShowed = false;
@@ -187,7 +187,7 @@ double MoneyMenager::showIncomes(vector <int> dates)
     return sum;
 }
 
-double MoneyMenager::showExpenses(vector <int> dates)
+double MoneyManager::showExpenses(vector <int> dates)
 {
     bool expensesNotShowed = true;
     double sum = 0;
@@ -199,7 +199,7 @@ double MoneyMenager::showExpenses(vector <int> dates)
         {
             if ((expenses[i].getDate() >= dates[0]) && (expenses[i].getDate() <= dates[1]))
             {
-                cout << "Date: " << DateMenager::convertIntDateToString(expenses[i].getDate()) << " | Item: "
+                cout << "Date: " << DateManager::convertIntDateToString(expenses[i].getDate()) << " | Item: "
                     << expenses[i].getItem() << " | Amount: " << setprecision (2) << fixed << expenses[i].getAmount() << endl;
                 sum += expenses[i].getAmount();
                 expensesNotShowed = false;
@@ -215,10 +215,10 @@ double MoneyMenager::showExpenses(vector <int> dates)
     return sum;
 }
 
-void MoneyMenager::showCurrentMonthBalance()
+void MoneyManager::showCurrentMonthBalance()
 {
     vector <int> dates;
-    dates = DateMenager::getCurrentMonthDates();
+    dates = DateManager::getCurrentMonthDates();
     system("cls");
     cout << "-----------------------------" << endl;
     cout << ">>> CURRENT MONTH BALANCE <<<" << endl;
@@ -226,10 +226,10 @@ void MoneyMenager::showCurrentMonthBalance()
     showBalance(dates);
 }
 
-void MoneyMenager::showPreviousMonthBalance()
+void MoneyManager::showPreviousMonthBalance()
 {
     vector <int> dates;
-    dates = DateMenager::getLastMonthDates();
+    dates = DateManager::getLastMonthDates();
     system("cls");
     cout << "-----------------------------" << endl;
     cout << ">>> PREVIOUS MONTH BALANCE <<<" << endl;
@@ -237,10 +237,10 @@ void MoneyMenager::showPreviousMonthBalance()
     showBalance(dates);
 }
 
-void MoneyMenager::showCustomBalance()
+void MoneyManager::showCustomBalance()
 {
     vector <int> dates;
-    dates = DateMenager::getCustomDates();
+    dates = DateManager::getCustomDates();
     if (!((dates[0] == 0) || (dates[1] == 0)) && dates[0] <= dates[1])
     {
         system("cls");

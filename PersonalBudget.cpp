@@ -1,28 +1,28 @@
 #include "PersonalBudget.h"
 
-// USER MENAGEMENT
+// USER MANAGEMENT
 void PersonalBudget::userSignUp()
 {
-    userMenager.userSignUp();
+    userManager.userSignUp();
 }
 
 void PersonalBudget::userLogin()
 {
-    userMenager.userLogin();
+    userManager.userLogin();
     if (userLogged())
     {
-        moneyMenager = new MoneyMenager(userMenager.getLoggedUserId(), FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES);
+        moneyManager = new MoneyManager(userManager.getLoggedUserId(), FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES);
     }
 }
 
 void PersonalBudget::userLogout()
 {
-    userMenager.userLogout();
+    userManager.userLogout();
 }
 
 bool PersonalBudget::userLogged()
 {
-    if (userMenager.getLoggedUserId() > 0)
+    if (userManager.getLoggedUserId() > 0)
         return true;
     else
         return false;
@@ -30,30 +30,30 @@ bool PersonalBudget::userLogged()
 
 void PersonalBudget::changeLoggedUserPassword()
 {
-    userMenager.changeLoggedUserPassword();
+    userManager.changeLoggedUserPassword();
 }
 
 void PersonalBudget::addIncome()
 {
-    moneyMenager -> addIncome();
+    moneyManager -> addIncome();
 }
 
 void PersonalBudget::addExpense()
 {
-    moneyMenager -> addExpense();
+    moneyManager -> addExpense();
 }
 
 void PersonalBudget::showCurrentMonthBalance()
 {
-    moneyMenager -> showCurrentMonthBalance();
+    moneyManager -> showCurrentMonthBalance();
 }
 
 void PersonalBudget::showPreviousMonthBalance()
 {
-    moneyMenager -> showPreviousMonthBalance();
+    moneyManager -> showPreviousMonthBalance();
 }
 void PersonalBudget::showCustomBalance()
 {
-    moneyMenager -> showCustomBalance();
+    moneyManager -> showCustomBalance();
 }
 
