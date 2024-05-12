@@ -1,5 +1,5 @@
-#ifndef DATEMENAGER_H
-#define DATEMENAGER_H
+#ifndef DATEMANAGER_H
+#define DATEMANAGER_H
 
 #include <iostream>
 #include <string>
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class DateMenager
+class DateManager
 {
     // ATTRIBUTES
 
@@ -32,5 +32,5 @@ public:
     static vector <int> getCustomDates();
 };
 
-#endif // DATEMENAGER_H
+#endif // DATEMANAGER_H
 

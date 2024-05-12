@@ -1,5 +1,5 @@
-#ifndef USERMENAGER_H
-#define USERMENAGER_H
+#ifndef USERMANAGER_H
+#define USERMANAGER_H
 
 #include <iostream>
 #include <vector>
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class UserMenager
+class UserManager
 {
     // ATTRIBUTES
     int idLoggedUser;
@@ -22,7 +22,7 @@ class UserMenager
     bool checkLoginExists(string login);
 public:
     //CONSTRUCTOR
-    UserMenager(string fileNameWithUsers) : xmlFileWithUsers(fileNameWithUsers)
+    UserManager(string fileNameWithUsers) : xmlFileWithUsers(fileNameWithUsers)
     {
         idLoggedUser = 0;
         users = xmlFileWithUsers.loadUsersFromXmlFile();
@@ -36,5 +36,5 @@ public:
 };
 
 
-#endif // USERMENAGER_H
+#endif // USERMANAGER_H
 

@@ -2,16 +2,16 @@
 #define PERSONALBUDGET_H
 
 #include <iostream>
-#include "UserMenager.h"
-#include "MoneyMenager.h"
+#include "UserManager.h"
+#include "MoneyManager.h"
 
 using namespace std;
 
 class PersonalBudget
 {
     // ATTRIBUTES
-    UserMenager userMenager;
-    MoneyMenager *moneyMenager;
+    UserManager userManager;
+    MoneyManager *moneyManager;
     const string FILE_NAME_WITH_USERS;
     const string FILE_NAME_WITH_INCOMES;
     const string FILE_NAME_WITH_EXPENSES;
@@ -20,26 +20,26 @@ class PersonalBudget
 public:
     // CONSTRUCTOR
     PersonalBudget(string fileNameWithUsers, string fileNameWithIncomes, string fileNameWithExpenses)
-        : userMenager(fileNameWithUsers), FILE_NAME_WITH_INCOMES(fileNameWithIncomes), FILE_NAME_WITH_EXPENSES(fileNameWithExpenses)
+        : userManager(fileNameWithUsers), FILE_NAME_WITH_INCOMES(fileNameWithIncomes), FILE_NAME_WITH_EXPENSES(fileNameWithExpenses)
     {
-        moneyMenager = NULL;
+        moneyManager = NULL;
     }
 
     // DESTRUCTOR
     ~PersonalBudget()
     {
-        delete moneyMenager;
-        moneyMenager = NULL;
+        delete moneyManager;
+        moneyManager = NULL;
     }
 
-    // USER MENAGEMENT
+    // USER MANAGEMENT
     void userSignUp();
     void userLogin();
     void changeLoggedUserPassword();
     void userLogout();
     bool userLogged();
 
-    // MONEY MENAGEMENT
+    // MONEY MANAGEMENT
     void addIncome();
     void addExpense();
     void showCurrentMonthBalance();
